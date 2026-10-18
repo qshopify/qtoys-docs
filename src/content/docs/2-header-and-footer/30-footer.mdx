@@ -1,0 +1,44 @@
+---
+title: "Footer"
+description: "Four footer layouts including Shop by age, footer menus, the signup form, the wordmark, the toy rule, social media icons, Follow on Shop, payment icons and selectors."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+<img width="800" height="460" src="/images/docs/footer.png" alt="The footer in the Shop by age layout: a large signup heading with an email field, the six age bands as large links along a line with a sprout that grows at each band, then the my|oi toys wordmark, brand line, social links and menu columns, and a bottom bar with payment icons." />
+
+## Layouts
+
+- **Newsletter, navigation and wordmark** — a signup band with your brand line, menu columns underneath, a bottom bar with *Back to top*, and a sliver of a large wordmark at the bottom edge.
+- **Minimal, centered** — your mark, one row of links, the copyright line and social media icons.
+- **Brand and four navigation columns** — a classic footer with your logo and text, up to four menu columns, and a bottom bar with payment icons and selectors.
+- **Shop by age** — the grow line as the footer: a large signup line, the six age bands as large links, your brand and menu columns, and the bottom bar. Every preset uses this layout.
+
+## The Shop by age layout
+
+In the **Shop by age** layout, the age bands from **Theme settings > Grow line** run along a line as large links, each with its stage name and a sprout icon that grows from band to band. Each link opens the **All toys collection** filtered to that band, using the **Age filter** parameter. Without an **All toys collection**, links open all products; without an **Age filter**, they open the collection unfiltered. See [Grow line](/docs/getting-started/theme-settings#grow-line).
+
+The signup line uses **Eyebrow**, **Heading** and **Show signup form**; the brand column uses **Brand line**.
+
+## Wordmark
+
+**Logo image** and **Logo width** set the mark in the brand area. Without an image, the footer shows your wordmark — set it with **Wordmark text**, or **Two-colour wordmark** and **Wordmark tag**, as in the header. Turn on **Show large wordmark** to set your store name, or **Wordmark text**, in large type across the footer.
+
+## Footer menus
+
+Add a **Footer menu** block for each column and choose a menu. Menus with more than seven links are shown as a compact inline index so the footer stays short. Use a **Links** block for a hand-picked column without creating a menu, or a **Text** block for an address or opening hours.
+
+## Signup form
+
+The footer signup adds subscribers to your Shopify customer list with email marketing consent. If a page already has a **Newsletter** section, the footer form hides itself on that page so shoppers never see two signup forms at once.
+
+## Toy rule
+
+Choose a collection in **Toy rule** to draw a row of rounded bands above the footer, one per product of the collection (up to 16), each in that toy's tile color from its `custom.tile_color` metafield. Toys without a tile color take pink, sky blue and sunny yellow in turn. Leave it empty to hide the rule.
+
+## Follow on Shop
+
+**Show Follow on Shop** adds Shopify's Follow button, so customers can follow your store in the Shop app. It appears when Shop Pay is active on your store.
+
+<SettingsTable section="footer" />

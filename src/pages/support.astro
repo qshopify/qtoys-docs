@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config';
+const topics = [
+  'Setting up the theme',
+  'A section or setting',
+  'Something looks broken',
+  'Updating the theme',
+  'Something else',
+];
+---
+<Base title="Contact support · QToys Docs" description="Get help with the QToys Shopify theme. Send your question with your store URL and a screenshot; we reply within two business days.">
+  <section class="wrap page-head">
+    <div class="spec"><span class="dot"></span>SUPPORT</div>
+    <h1>Contact <span class="it">support</span></h1>
+    <p>Tell us what you need and we’ll reply by email within {site.responseTime}. Many answers are already in the <a href="/faq">FAQ</a> and the <a href="/docs">docs</a>.</p>
+  </section>
+
+  <section class="wrap support">
+    <!--
+      Netlify Forms: data-netlify captures submissions (including the screenshot
+      file); the honeypot field blocks bots. Every verified submission also runs
+      netlify/functions/submission-created.mjs, which emails the auto-reply.
+    -->
+    <form class="sform" name="support" method="POST" data-netlify="true" netlify-honeypot="company" enctype="multipart/form-data" action="/support/thanks">
+      <input type="hidden" name="form-name" value="support" />
+      <p class="hp" aria-hidden="true"><label>Leave this empty <input name="company" tabindex="-1" autocomplete="off" /></label></p>
+
+      <div class="row two">
+        <div class="field">
+          <label for="f-first">First name</label>
+          <input id="f-first" name="first_name" type="text" autocomplete="given-name" required />
+        </div>
+        <div class="field">
+          <label for="f-last">Last name</label>
+          <input id="f-last" name="last_name" type="text" autocomplete="family-name" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-email">Email address</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" required />
+      </div>
+
+      <div class="field">
+        <label for="f-store">Store URL</label>
+        <input id="f-store" name="store_url" type="text" inputmode="url" placeholder="your-store.myshopify.com" aria-describedby="f-store-hint" required />
+        <p class="hint" id="f-store-hint">For example <code>your-store.myshopify.com</code> — we use it to look at the theme on your store.</p>
+      </div>
+
+      <div class="field">
+        <label for="f-topic">Topic</label>
+        <select id="f-topic" name="topic">
+          {topics.map((t) => <option value={t}>{t}</option>)}
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f-msg">Describe the problem</label>
+        <textarea id="f-msg" name="message" rows="7" aria-describedby="f-msg-hint" required></textarea>
+        <p class="hint" id="f-msg-hint">What did you expect to happen, and what happened instead? Which page and section?</p>
+      </div>
+
+      <div class="field">
+        <label for="f-file">Screenshot or file <span class="opt">optional</span></label>
+        <input id="f-file" name="attachment" type="file" accept="image/*,.pdf" aria-describedby="f-file-hint" />
+        <p class="hint" id="f-file-hint">PNG, JPG, GIF or PDF, up to 8 MB.</p>
+      </div>
+
+      <input type="hidden" name="subject" value="QToys support request" />
+      <p class="consent">By sending this form you agree that we may use these details to answer your request.</p>
+      <button class="cta" type="submit">Send request <span>→</span></button>
+      <p class="status" role="status" aria-live="polite" data-status></p>
+    </form>
+
+    <aside class="sside">
+      <div class="scard">
+        <h2>What to expect</h2>
+        <ul>
+          <li>An automatic confirmation email right away.</li>
+          <li>A reply from the team within {site.responseTime}.</li>
+          <li>Critical bugs that stop customers from buying are handled first.</li>
+        </ul>
+      </div>
+      <div class="scard">
+        <h2>Before you send</h2>
+        <ul>
+          <li>Check the <a href="/faq">FAQ</a>.</li>
+          <li>Disable app embeds to see whether an app is the cause.</li>
+          <li>Read what our <a href="/docs/support/support-policy">support policy</a> covers.</li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <script>
+    // Guard the attachment size before upload, and show progress on submit.
+    const form = document.querySelector<HTMLFormElement>('form.sform');
+    const status = form?.querySelector<HTMLElement>('[data-status]');
+    const file = form?.querySelector<HTMLInputElement>('#f-file');
+    file?.addEventListener('change', () => {
+      const f = file.files?.[0];
+      if (f && f.size > 8 * 1024 * 1024) {
+        file.setCustomValidity('Please choose a file under 8 MB.');
+        file.reportValidity();
+      } else {
+        file.setCustomValidity('');
+      }
+    });
+    form?.addEventListener('submit', () => {
+      const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (btn) btn.disabled = true;
+      if (status) status.textContent = 'Sending…';
+    });
+  </script>
+</Base>
+
+<style>
+  .page-head { max-width:760px; padding-top:64px; padding-bottom:28px; }
+  .support { display:grid; gap:40px; padding-bottom:80px; grid-template-columns:minmax(0,1fr); }
+  @media (min-width:960px){ .support { grid-template-columns:minmax(0,1fr) 320px; align-items:start; } }
+  .sform { display:flex; flex-direction:column; gap:18px; padding:28px; border:1px solid var(--line); border-radius:18px; background:#fff; box-shadow:var(--shadow-float); }
+  .row.two { display:grid; gap:18px; grid-template-columns:1fr; }
+  @media (min-width:600px){ .row.two { grid-template-columns:1fr 1fr; } }
+  .field { display:flex; flex-direction:column; gap:7px; }
+  .field label { font-weight:600; font-size:14px; color:var(--ink); }
+  .field .opt { font-weight:400; color:var(--muted); margin-left:6px; }
+  .field input:not([type=file]), .field select, .field textarea {
+    font:inherit; font-size:15px; color:var(--ink); background:#fff; border:1px solid var(--line-2); border-radius:10px; padding:11px 13px; transition:border-color .15s, box-shadow .15s; }
+  .field textarea { resize:vertical; min-height:150px; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+  .field input[type=file] { font-size:14px; color:var(--ink-2); }
+  .field input[type=file]::file-selector-button { font:inherit; font-weight:600; margin-right:12px; padding:8px 14px; border-radius:999px; border:1px solid var(--line-2); background:var(--paper-2); color:var(--ink); cursor:pointer; }
+  .hint { margin:0; font-size:13px; color:var(--muted); }
+  .hint code { font-family:var(--mono); font-size:12px; background:var(--paper-2); border:1px solid var(--line); border-radius:5px; padding:1px 5px; }
+  .consent { margin:0; font-size:13px; color:var(--muted); }
+  .status { margin:0; font-size:14px; color:var(--ink-2); min-height:1em; }
+  .hp { position:absolute; left:-9999px; }
+  .sform .cta { align-self:flex-start; }
+  .sside { display:flex; flex-direction:column; gap:16px; }
+  .scard { padding:20px; border-radius:16px; background:var(--paper-2); border:1px solid var(--line); }
+  .scard h2 { font-size:16px; font-weight:800; letter-spacing:-.02em; margin:0 0 10px; }
+  .scard ul { margin:0; padding-left:1.1em; display:flex; flex-direction:column; gap:6px; font-size:14.5px; color:var(--ink-2); list-style:disc; }
+  .scard a { color:var(--accent-ink); text-decoration:underline; text-underline-offset:2px; }
+</style>

@@ -1,0 +1,63 @@
+---
+title: "Header and navigation"
+description: "Logo and two-color wordmark, four header layouts, mega menu or dropdown navigation, shop by age, search, the wishlist heart, sticky behavior and the transparent header."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+The header holds your logo, main menu, search, the account component, the wishlist heart and the bag. Open it from the **Header** group in the theme editor.
+
+<img width="800" height="78" src="/images/docs/header.png" alt="The announcement bar and the header in the Logo left layout: the pink and blue my|oi wordmark with a toys tag on the left, the main menu next to it, and a search field, account, wishlist heart and bag icons on the right." />
+
+## Logo and wordmark
+
+Upload your logo under **Logo image**. Any shape works — wide wordmarks and tall marks alike — and **Logo width** sets its size on desktop.
+
+Without an image, the header shows a text wordmark in the heading font. **Wordmark text** sets what it says — leave it empty to use your store name — and **Text logo size** sets its size. For a two-color wordmark, enter it in **Two-colour wordmark** with a bar where the colors change, such as `my|oi`: the first part is pink and the second sky blue. **Wordmark tag** adds a small pill after it, such as *toys*. The same wordmark heads the mobile menu.
+
+## Layout
+
+- **Logo center, navigation left** — an editorial layout with the menu on the left and icons on the right.
+- **Logo left, navigation center** — a classic layout for larger menus.
+- **Logo on top, menu below** — the logo centered on its own row, with the menu centered in a row underneath.
+- **Menu button on every screen** — no inline menu at all: a *Menu* button opens the side drawer on desktop too, and the logo sits in the center. Good for small catalogs and image-led stores.
+
+Turn on **Show search field** to replace the search icon with an inline search field, and set its **Search field placeholder**. On phones the field sits on its own row under the bar. The **Logo on top, menu below** and **Menu button on every screen** layouts keep the search icon, since there's no room for a field.
+
+## Menus
+
+The header uses the menu chosen in **Main menu**. Menus can be up to three levels deep. Choose how a top-level item with children opens with **Menu style**:
+
+- **Mega menu** — a full-width panel with one column of links per child item, a shop by age column and optional image cards.
+- **Dropdown** — a compact list under the link, with third-level links indented underneath and the age bands as chips at the bottom.
+
+<img width="800" height="358" src="/images/docs/header-mega-menu.png" alt="A mega menu open under a top-level item: columns of child links, a Shop by age column listing the six age bands with a sprout icon that grows with each band, and image cards on the right." />
+
+To add an image card to a mega menu, add a **Navigation image** block and enter the exact name of the top-level item in **Navigation item** (for example *Shop*). Add two blocks with the same item name for a pair of cards. Image cards appear in the **Mega menu** style only.
+
+## Shop by age
+
+**Show the age bands in menus** adds the six age bands as links — a column in every mega menu, chips in dropdowns and chips in the mobile menu. Each link opens your **All toys collection** filtered to that band, and shows the band's stage name in mega menus.
+
+The bands, the collection and the filter all come from **Theme settings > Grow line**, so the links appear only when **All toys collection** and **Age filter** are both set. See [Grow line](/docs/getting-started/theme-settings#grow-line).
+
+## Sticky and transparent header
+
+- **Sticky header** keeps the header on screen — **Always**, or only **On scroll up** so it gets out of the way while reading.
+- **Shrink when scrolled** makes the header 60 px tall, with a soft shadow, once the page scrolls.
+- **Transparent over the home page hero** lays the header over the first section on the home page. Choose **Transparent header text** to suit light or dark images.
+
+## Account, wishlist and bag
+
+QToys shows Shopify's customer account component in the header on desktop and mobile. Customers can sign in, see their orders and manage their profile without leaving your store. The links in the account menu come from **Settings > Customer accounts** in your admin.
+
+Choose a page that uses the *Wishlist* template in **Wishlist page** to add a heart icon with the number of toys the shopper has saved. The bag is an icon with an item count badge, and opens the cart drawer.
+
+## Mobile navigation
+
+On phones the menu opens in a drawer, colored with the **Navigation and drawers color scheme** (also used for menu panels and the search drawer). Age band chips, an account link, and country and language selectors can be added to the bottom of the drawer.
+
+**Mobile menu collection tiles** adds a grid of color tiles under the menu, one per collection you choose (up to eight) — for example one per toy type. Each tile is filled with the collection's color from its `custom.color` metafield. **Collection tiles heading** sets the small heading above the tiles.
+
+<SettingsTable section="header" />

@@ -1,0 +1,104 @@
+---
+/**
+ * <SettingsTable section="hero" />            — a section's settings (+ its blocks)
+ * <SettingsTable section="main-product" block="buy_buttons" />  — one block only
+ * <SettingsTable global="Cart" />             — a Theme settings group
+ *
+ * Rendered from src/data/theme-schema.json, which `node scripts/export-docs-schema.mjs`
+ * in the theme repo writes from the real schemas. The labels here are therefore
+ * exactly what merchants see in the theme editor — never retype them by hand.
+ */
+import schema from '../data/theme-schema.json';
+
+type Setting = {
+  type: string; id?: string; label?: string; info?: string; content?: string;
+  default?: unknown; unit?: string; min?: number; max?: number; step?: number;
+  options?: { value: string; label: string }[];
+  fields?: (string | null)[];
+};
+type Block = { type: string; name: string; settings: Setting[] };
+type Section = { name: string; settings: Setting[]; blocks: Block[]; appBlocks?: boolean };
+
+const { section, block, global, title, showBlocks = true } = Astro.props as {
+  section?: string; block?: string; global?: string; title?: string; showBlocks?: boolean;
+};
+
+const sections = schema.sections as Record<string, Section>;
+let heading = title ?? '';
+let kind = '';
+let settings: Setting[] = [];
+let blocks: Block[] = [];
+let appBlocks = false;
+
+if (global) {
+  const group = (schema.global as { name: string; settings: Setting[] }[]).find((g) => g.name === global);
+  if (!group) throw new Error(`SettingsTable: no Theme settings group "${global}"`);
+  heading ||= group.name;
+  kind = 'Theme settings';
+  settings = group.settings;
+} else if (section) {
+  const s = sections[section];
+  if (!s) throw new Error(`SettingsTable: no section "${section}"`);
+  if (block) {
+    const b = s.blocks.find((x) => x.type === block);
+    if (!b) throw new Error(`SettingsTable: section "${section}" has no block "${block}"`);
+    heading ||= b.name;
+    kind = `${s.name} · block`;
+    settings = b.settings;
+  } else {
+    heading ||= s.name;
+    kind = 'Section';
+    settings = s.settings;
+    blocks = showBlocks ? s.blocks : [];
+    appBlocks = Boolean(s.appBlocks);
+  }
+}
+
+const fmtDefault = (s: Setting): string | null => {
+  if (s.default === undefined || s.default === '' || s.type === 'richtext' || s.type === 'inline_richtext') return null;
+  if (s.type === 'checkbox') return s.default ? 'On by default' : 'Off by default';
+  if (s.type === 'select' || s.type === 'radio') {
+    const o = s.options?.find((x) => x.value === s.default);
+    return o ? `Default: ${o.label}` : null;
+  }
+  if (s.type === 'range') return `Default: ${s.default}${s.unit ?? ''} · ${s.min}–${s.max}${s.unit ?? ''}`;
+  if (s.type === 'color_scheme') return `Default: ${String(s.default).replace('scheme-', 'Scheme ')}`;
+  if (typeof s.default === 'string' && s.default.length <= 60 && !s.default.includes('<')) return `Default: ${s.default}`;
+  return null;
+};
+
+type Row = { group: string } | { setting: Setting };
+const rows: Row[] = [];
+for (const s of settings) {
+  if (s.type === 'header' && s.content) rows.push({ group: s.content });
+  else if (s.label) rows.push({ setting: s });
+}
+---
+<div class="stbl not-prose">
+  <div class="stbl-h"><b>{heading}</b><span>{kind}</span></div>
+  {rows.length === 0 && <div class="stbl-blocks">No settings — this part is configured elsewhere.</div>}
+  {rows.map((r) =>
+    'group' in r ? (
+      <div class="stbl-group">{r.group}</div>
+    ) : (
+      <dl class="stbl-row">
+        <dt>{r.setting.label}</dt>
+        <dd>
+          {r.setting.info && <span set:html={r.setting.info} />}
+          {(r.setting.type === 'select' || r.setting.type === 'radio') && r.setting.options && (
+            <span class="opts">{r.setting.options.map((o) => <span class="opt">{o.label}</span>)}</span>
+          )}
+          {r.setting.fields && (
+            <>Each scheme sets: <span class="opts">{r.setting.fields.filter(Boolean).map((f) => <span class="opt">{f}</span>)}</span></>
+          )}
+          {fmtDefault(r.setting) && <span class="def">{fmtDefault(r.setting)}</span>}
+        </dd>
+      </dl>
+    )
+  )}
+  {(blocks.length > 0 || appBlocks) && (
+    <div class="stbl-blocks">
+      <b>Blocks:</b> {blocks.map((b) => b.name).join(', ')}{appBlocks && (blocks.length ? ', apps' : 'Apps')}
+    </div>
+  )}
+</div>

@@ -1,0 +1,65 @@
+---
+title: "How the grow line works"
+description: "QToys' grow line: six age bands from newborn to eight, where the line appears, skill tags, and how shoppers use it to find toys that fit."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+The grow line is QToys' signature. Every toy sits on one line of six age bands, from newborn to eight, and the bands the toy suits are filled in. Shoppers see at a glance whether a toy fits their child now, later, or not anymore.
+
+The line is drawn from product metafields, not from theme settings. A toy shows a line only when its `custom.age_bands` metafield has at least one band ticked. Toys without it simply show no line. See [Grow data](/docs/grow-line/grow-data) to set it up.
+
+<img width="480" height="172" src="/images/docs/grow-line-product.png" alt="The Grow line block on a product page: the Best for heading with the toy's age range, six segments with the bands it fits filled in pink, the band labels underneath, and the How old is your child? age chips." />
+
+## Age bands
+
+The six bands, and the stage name for each, are set in **Theme settings > Grow line**:
+
+| Band | Stage name | Months |
+| --- | --- | --- |
+| 0–6m | Newborn | 0–6 |
+| 6–12m | Sitter | 6–12 |
+| 1–2y | Walker | 12–24 |
+| 2–3y | Explorer | 24–36 |
+| 3–5y | Maker | 36–60 |
+| 5–8y | Big kid | 60–96 |
+
+- **Age bands** — six labels, comma separated, youngest first. These must match the choices of the `custom.age_bands` metafield exactly, including the en dash.
+- **Stage names** — one name per band, comma separated.
+- **Band edges in months** — seven numbers, one more than the bands. QToys uses them to place a child's age on the line and to write a toy's age range, such as *6 months – 2 years*.
+- **All toys collection** — the collection that age band links open, filtered by band. Links in the collection banner, the age shop and the account page use it.
+- **Age filter** — the Search & Discovery filter parameter for the age bands. Leave it at `filter.p.m.custom.age_bands` unless your metafield has a different key.
+
+<Callout type="note">
+If you rename a band in theme settings, rename the matching choice in the metafield definition too. A product whose value no longer matches a band label won't fill that band.
+</Callout>
+
+<SettingsTable global="Grow line" />
+
+## Skill tags
+
+Each toy can also say which skills it builds. QToys has five, set with **Skill names** in **Theme settings > Grow line**: *Move, Think, Feel, Pretend, Create* by default, each with its own color (**Skill 1** to **Skill 5**). A toy's skills come from its `custom.skills` metafield. Cards show them as small colored dots with the name, and the **Skills** block on the product page shows them as tinted chips.
+
+## Where the grow line appears
+
+- **Product cards** — a thin grow bar and the short age range, such as *6m – 2y*, plus the skill dots. Turn them off with **Show the grow line and age range** and **Show skills** in **Theme settings > Grow line**.
+- **Product page** — the **Grow line** block shows the line with its band labels and, with **Show "Best for…" heading** on, a heading such as *Best for 6 months – 2 years*. With **Ask the child's age** on, *How old is your child?* chips sit under the line.
+- **Quick view** — the same line and age chips as the product page.
+- **Cart** — each line shows the toy's age range. Turn on **Show each toy's grow line** in the cart drawer, or **Show grow lines** on the cart page, to add the bar too. When the shopper has saved a child on their account page, an age check above the list says whether the toys in the bag suit that child.
+- **Collection banner** — with **Show the age bands** on, the six bands sit under the collection title, each linking to the collection filtered by that band.
+- **Collection filters** — when you add an age bands filter in the Search & Discovery app, the filter is drawn as the six grow line segments, and the skills filter as colored chips.
+- **Home page** — the [Age shop](/docs/grow-line/grow-sections#shop-by-age) section turns the bands into buttons that change the toys below, and the [Toy hero](/docs/grow-line/grow-sections#toy-hero) can float one toy's grow line on its image.
+
+<img width="800" height="112" src="/images/docs/grow-line-collection-banner.png" alt="A collection banner for Toys with the six age band links 0–6m to 5–8y under the title." />
+
+## How shoppers use it
+
+On a product page or in quick view, a shopper taps the age chip for their child. QToys marks that band on the line and prints how the toy fits:
+
+- **A little early** — the toy starts at an older band. Worth keeping for later.
+- **A good fit** — the age falls in the toy's range.
+- **Right in the sweet spot** — the age the toy is made for.
+- **Probably outgrown** — the child is older than the toy's last band.
+
+The pick is remembered while the shopper browses in the same tab. Shoppers can also save their children's names and birth months in the **My kids** area of their account page. QToys then picks the right band on its own, starts the age shop at that child's age, and runs the age check in the cart. Children's details are kept only in the shopper's browser. Nothing is sent to Shopify.

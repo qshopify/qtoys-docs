@@ -1,0 +1,95 @@
+---
+title: "Grow sections"
+description: "Sections built for toy stores: Toy hero, Age shop, Skill tiles, Gift finder, Trade-in, Play stages and Box contents."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+These sections put the [grow line](/docs/grow-line/how-the-grow-line-works) and the things toy shoppers ask about at the center of a page. Add them from **Add section** in the theme editor. Toys shown by age need a `custom.age_bands` metafield. See [Grow data](/docs/grow-line/grow-data).
+
+## Toy hero
+
+A home page opener: an eyebrow pill, a large heading, a line of text and two buttons on one side, and your image on a circle or blob on the other, with decorative sparkles, hearts or clouds around it. Wrap one word of the **Heading** in italics to underline it with a squiggle.
+
+Pick a toy under **Best-for card** to float a small card on the image with that toy's grow line. Add **Trust point** blocks for short lines such as *Free shipping over $50*, each with its own dot color.
+
+<img width="800" height="370" src="/images/docs/toy-hero.png" alt="The Toy hero section: the heading Toys that grow with them with a squiggle under grow, two buttons and trust points, and a toy on a pink circle with a floating Best for card showing its grow line." />
+
+<SettingsTable section="toy-hero" />
+
+## Shop by age
+
+The **Age shop** section turns the six age bands into buttons. Tapping one changes the toys below to those that fit that band, without reloading the page, and the **See all** link follows the chosen band.
+
+- **Collection** — the toys to choose from. **Toys per age** sets how many show for each band.
+- **Starting age band** — the band pressed when the page opens, from 1 (the first band) to 6.
+- **Start at the shopper's saved child** — when the shopper has saved a child on their account page, the section opens at that child's band instead.
+
+Add a **Band note** block to show a short line for one band, such as *Stack, push, pull* for *1–2y*. The **Band** must match a label in **Theme settings > Grow line**.
+
+<img width="800" height="534" src="/images/docs/age-shop.png" alt="The Age shop section: the heading How old is your little one?, six age band buttons with 1–2y pressed, a band note, and a row of four toys that fit that band." />
+
+<SettingsTable section="age-shop" />
+
+## Skill tiles
+
+One tile per skill, in a tint of the skill's color, with an icon, the name, a line of text and the number of toys in its collection. Add a **Skill** block for each tile, choose its **Icon** and **Colour**, and pick a **Collection**. With no collection, the tile links to **Link** instead and shows no count.
+
+<img width="800" height="255" src="/images/docs/skill-tiles.png" alt="The Skill tiles section: five colored tiles for Move, Think, Feel, Pretend and Create, each with an icon, a short line and a toy count." />
+
+<SettingsTable section="skill-tiles" />
+
+## Gift finder
+
+Three quick questions for shoppers buying for someone else's child: their age, a budget and an occasion. Each answer is a chip, and the button opens the **Results collection** with those filters applied. A summary line, such as *Birthday · 1–2y · $25 – $50*, follows the answers.
+
+- The age chips are the six age bands. **Age chip selected at start** sets which one is pressed.
+- Add a **Budget** block for each price range, with **From** and **Up to** in your store currency.
+- Add an **Occasion** block for each occasion. Its **Filter value** is matched by **Occasion filter parameter**, a product tag by default.
+
+<Callout type="note">
+The gift finder builds a filtered collection link, so the filters must exist in the Search & Discovery app: the age bands metafield, price, and tags (or the metafield you use for occasions). See [Grow data](/docs/grow-line/grow-data#collection-filters).
+</Callout>
+
+<img width="800" height="397" src="/images/docs/gift-finder.png" alt="The Gift finder section: a blue panel with chip rows for Their age, Budget and Occasion, a summary line and a Show gifts button, beside a wrapped gift illustration." />
+
+<SettingsTable section="gift-finder" />
+
+## Trade-in
+
+Explains your pre-loved program. Choose a **Layout**:
+
+- **How it works: steps and grades** — numbered step cards (**Step** blocks) and the condition grades (**Grade** blocks), such as *Like new*, *Good* and *Well loved*.
+- **Credit estimator** — shoppers pick the kind of toy (**Toy kind** blocks), what it cost new (**Price options**) and its condition (**Grade** blocks). The result card shows the estimated credit, worked out from the price, the grade's **Credit rate** and, when ticked, **Extra credit for toys bought here**.
+
+<Callout type="warning">
+The estimator only estimates store credit. It doesn't collect toys, create trade-ins or issue credit. You handle real trade-ins yourself, for example by pointing **Button link** at your contact page so shoppers can send you the details.
+</Callout>
+
+<img width="800" height="308" src="/images/docs/trade-in-steps.png" alt="The Trade-in section in the steps layout: the heading Outgrown it? Pass it on., three numbered step cards and the condition grades Like new, Good and Well loved." />
+
+<img width="800" height="344" src="/images/docs/trade-in-estimator.png" alt="The Trade-in section in the estimator layout: questions for toy kind, price new and condition, an extra credit checkbox, and a result card with the estimated credit." />
+
+<SettingsTable section="trade-in" />
+
+## Play stages
+
+For product pages. Shows how one toy is played with at each age, as a row of cards, each with an age, a title and a line of text. The cards come from the product's `custom.play_stages` metafield, and the section hides on products without it. See [Play stages metafield](/docs/grow-line/grow-data#play-stages).
+
+<img width="800" height="218" src="/images/docs/play-stages.png" alt="The Play stages section: the heading One toy, four ways to play and four cards from 6 months to 2 years, each with a growing sprout and progress bar." />
+
+<SettingsTable section="play-stages" />
+
+## Box contents
+
+For a toy box sold in stages, such as a subscription box with one variant per age. Add a **Stage** block for each stage. Its **Stage** must match a value of the product option named in **Stage option name** (*Stage* by default) exactly, such as *6–12m*. The section follows the variant the shopper picks. Choose a **Layout**:
+
+- **What's inside the selected stage** — the toys in the selected stage's box, up to four (**Toy 1** to **Toy 4**), with their skill and subtitle.
+- **How the box grows (every stage)** — every stage in a row, with an icon and one line each, and the selected one marked *Starting here*.
+
+<img width="800" height="540" src="/images/docs/box-contents.png" alt="The Box contents section in the contents layout: Inside the box for the selected stage, with four toys, each with its skill and subtitle." />
+
+<img width="800" height="173" src="/images/docs/box-contents-timeline.png" alt="The Box contents section in the timeline layout: every stage of the box in a row, with the selected stage marked Starting here." />
+
+<SettingsTable section="box-contents" />

@@ -1,0 +1,63 @@
+---
+title: "FAQ, newsletter, countdown and custom liquid"
+description: "Answer questions, collect signups, count down to a real event, and add your own code."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## FAQ
+
+Questions and answers as an accordion — good for age, safety, returns and trade-in questions. Answers are added to your page's structured data so search engines can show them. Choose a **Layout**:
+
+- **Heading beside questions** — the heading on the left, the questions on the right.
+- **Stacked** — the heading above the questions.
+- **Help center (search + topics)** — a header band with a search field and topic chips that filter the questions.
+- **Topic index beside questions** — the heading and a list of topics on the left, the questions on the right. The first topic starts selected, and choosing another topic shows its questions. This is the layout for new FAQ sections.
+
+Group questions with each question's **Topic**. A question without a topic shows under every topic; when no question has a topic, the index is hidden and every question shows.
+
+<img width="800" height="369" src="/images/docs/faq.png" alt="The FAQ section in the Topic index beside questions layout: eyebrow, heading and a topic list on the left, and expandable questions on the right." />
+
+<SettingsTable section="faq" />
+
+## Newsletter
+
+A signup form that adds subscribers to your Shopify customer list with email marketing consent. Only one signup form shows per page — when this section is on a page, the footer's signup form hides itself.
+
+Choose a **Layout**:
+
+- **Copy left, field right** — the heading and text on the left, an underlined email field on the right.
+- **Centered, inline field** — a centered stack with a boxed field and button on one row.
+- **Inline on a heavy rule** — the heading and text on the left and an underlined email field with a text button on the right, over a heavy rule. It's the layout for new Newsletter sections.
+
+<img width="800" height="193" src="/images/docs/newsletter.png" alt="The Newsletter section in the Inline on a heavy rule layout: heading and text on the left, and an underlined email field with a text button on the right." />
+
+<SettingsTable section="newsletter" />
+
+## Countdown
+
+Count down to a real date and time — a launch, the end of a sale, a holiday gift shipping cut-off. Set **Ends at** in your store's time zone and choose what happens **When the countdown ends**: show the **Ended message** or hide the section.
+
+Choose a **Layout**:
+
+- **Band with elapsed-time ruler** — days, hours and minutes as large numbers over a ruler that fills as time passes, from **Starts at** to **Ends at**. Enter **Starts at** in the same format as **Ends at**, or leave it blank to hide the ruler. Pick a **Ruler color from product** to fill the ruler in that product's color; without one, the ruler uses the color scheme's colors.
+- **Boxed units** — days, hours, minutes and seconds in separate boxes.
+
+<Callout type="warning" title="Only for real deadlines">
+Don't use a countdown for a deadline that resets or doesn't exist. Fake urgency misleads shoppers and breaks Shopify's rules.
+</Callout>
+
+<img width="800" height="125" src="/images/docs/countdown.png" alt="The Countdown section in its band layout: heading and button on the left, days, hours and minutes as large numbers over a partly filled ruler on the right." />
+
+<SettingsTable section="countdown" />
+
+## Custom liquid
+
+Add Liquid, HTML or an app's snippet anywhere sections are supported. A **Custom liquid** block is also available on the product page and in the featured product section.
+
+<SettingsTable section="custom-liquid" />
+
+<Callout type="note" title="We can't support custom code">
+Code you add here isn't covered by theme support. If something breaks, remove the section to check whether it's the cause.
+</Callout>

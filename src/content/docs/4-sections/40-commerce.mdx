@@ -1,0 +1,105 @@
+---
+title: "Commerce sections"
+description: "Featured product, featured collection, collection tabs, collection list, shoppable image, bundle builder, gift card purchase and blog posts."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+<Callout type="note" title="Shop by age and gift finder">
+The **Age shop** and **Gift finder** sections, which let shoppers browse by age band or find a gift, are documented with the other grow line sections. See [Grow sections](/docs/grow-line/grow-sections).
+</Callout>
+
+## Featured product
+
+Sell one product anywhere: image, price, variant picker, buy button, Shop Pay Installments and accelerated checkout. Images, videos and 3D models all play here. Add **Custom liquid** or app blocks under the form.
+
+Choose a **Layout**:
+
+- **Stacked** — the product's color band as a rail on the left, a large title, the grow line and buy button, and one image. It's the layout for new Featured product sections.
+- **Product hero — edge to edge, 50 / 50** — a full-width band with the image beside the buy box.
+- **Contained, image beside the form** — the image beside the full product form, inside the page width.
+
+The section shows the product's grow line with the age range it's best for, read from the product's `custom.age_bands` metafield. See [How the grow line works](/docs/grow-line/how-the-grow-line-works).
+
+<img width="800" height="248" src="/images/docs/featured-product.png" alt="The Featured product section: the toy image beside the title, grow line with its age range, price, variant buttons and Add to bag." />
+
+<SettingsTable section="featured-product" />
+
+## Featured collection
+
+A grid or a carousel of products from one collection. **Card style** switches between the **Image card** and a **Boxed** card that suits accessories. Choose **Desktop layout** and **Mobile layout** separately.
+
+Turn on **Age tabs** to add a row of chips above the products — *All* plus the six age bands. Choosing a band shows only the toys whose `custom.age_bands` include it, without reloading the page. See [How the grow line works](/docs/grow-line/how-the-grow-line-works).
+
+<img width="800" height="347" src="/images/docs/featured-collection.png" alt="The Featured collection section: heading and Shop all link, and a row of toy cards, each with its grow line and age range." />
+
+<SettingsTable section="featured-collection" />
+
+## Collection tabs
+
+Several collections behind tabs — for example *Under $25*, *Under $50* and *Under $100* — so shoppers can browse without leaving the page. Add one **Tab** block per collection. Choose a **Layout**:
+
+- **Copy and chips beside the products** — the heading, text and tab chips on the left, the chosen collection's products on the right.
+- **Heading with tabs, products below** — the heading and tabs above, up to four products per row below.
+
+Each tab has a **Color**, used for the active tab's underline in the stacked layout and for a small tick in the chips layout. Leave it blank to use the tab collection's `custom.color` metafield, or else the color scheme's **Age bands it fits** color.
+
+<img width="800" height="424" src="/images/docs/collection-tabs.png" alt="The Collection tabs section: eyebrow, heading and text with budget chips on the left, and product cards from the chosen tab on the right." />
+
+<SettingsTable section="collection-tabs" />
+
+## Collection list
+
+Your chosen collections, one **Collection** block each. Without an image, a collection shows its first product's image. Choose a **Style**:
+
+- **Bands** — each collection as a tall band in its color, as tall as its product count compared with the largest collection. Bands is the style for new Collection list sections.
+- **Image with heading below** — an image with the title and product count under it, and the collection's age span: a thin grow bar and the range of ages its toys cover.
+- **Tiles, heading over the image** — a tall tile with the title and product count over the image, after your **Tile link label**.
+- **Circles** — round thumbnails with a label.
+
+A band's color is the block's **Color**; when that's blank, it's the collection's `custom.color` metafield, or else the color scheme's colors in turn.
+
+<img width="800" height="321" src="/images/docs/collection-list.png" alt="The Collection list section on the gift guide: a row of collections for who the gift is for." />
+
+<SettingsTable section="collection-list" />
+
+## Shoppable image
+
+A lifestyle photo with hotspots, such as a play corner. Each **Hotspot** block links a product to a point on the image; set its **Horizontal position** and **Vertical position** in percent.
+
+**Product card** sets where a hotspot's product shows: **Beside the image**, **Pop over the dot**, or **In-this-look list, cards over image** — a list beside the image shows every hotspot product with its color and price, and an *Add all* button; choosing a hotspot opens its card over the image. **Hotspot marker** draws each hotspot as a short band in the **Color of the product** or as a **Dot**.
+
+<img width="800" height="347" src="/images/docs/shoppable-image.png" alt="The Shoppable image section: a play corner photo with colored hotspots, and beside it a list of the toys in the photo with their prices and an Add all button." />
+
+<SettingsTable section="shoppable-image" />
+
+## Bundle builder
+
+Shoppers pick a set number of products from a collection — for example three toys for one age — and add them to the cart in one step. Each product adds its first available variant, so single-variant products work best. The **Bundle discount** setting is display-only: create a matching automatic discount in **Discounts** so the price actually changes at checkout.
+
+Choose a **Style**: **Color bands** shows tall slots that fill with each pick's color band, beside the products to choose from, each with its band down the edge. **Cards** shows product cards beside a summary panel.
+
+<img width="800" height="347" src="/images/docs/bundle-builder.png" alt="The Bundle builder section in the Color bands style: empty slots and a running total on the left, and toys to pick from on the right, each with a color band." />
+
+<SettingsTable section="bundle-builder" />
+
+## Gift card purchase
+
+Sell your gift card from any page, with amount buttons and the option to send it to a recipient by email on a chosen date. The amounts come from the variants of your **Gift card product**.
+
+**Show color band** draws a band down the gift card's edge. Pick a **Color product** to use its colors; without one, the band uses the card's color scheme colors.
+
+<img width="800" height="263" src="/images/docs/gift-card-purchase.png" alt="The Gift card purchase section: a gift card with a color band beside the heading, amount buttons, a recipient switch and an Add gift card button." />
+
+<SettingsTable section="gift-card-purchase" />
+
+## Blog posts
+
+Your latest articles, or articles you pick, as cards — such as play guides for each age.
+
+Choose a **Layout**: **Lead article and list** shows the newest article large, with the next ones listed under a heavy rule. **Cards in a row** shows each article as a card, swiping on phones.
+
+<img width="800" height="317" src="/images/docs/featured-blog.png" alt="The Blog posts section on the home page: heading and All stories link, the newest article large with its image, tag and reading time, and the next articles listed under a heavy rule." />
+
+<SettingsTable section="featured-blog" />

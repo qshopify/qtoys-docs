@@ -1,0 +1,81 @@
+---
+title: "JavaScript events for developers"
+description: "Stable browser events QToys fires for the cart, variant changes, drawers, search, newsletter signups, saved kids and the wishlist."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+QToys fires browser events at the moments custom code usually cares about. They're dispatched on `document` as standard `CustomEvent`s, so analytics tags, app embeds and your own scripts can listen without touching theme files. Event names are a stable public API — they won't be renamed or repurposed.
+
+```js
+document.addEventListener('cart:updated', (event) => {
+  console.log(event.detail); // { source, items, cart }
+});
+```
+
+Code that ships inside the theme — a section, snippet or app block — can also use the theme's own subscriber, which runs in order with the theme's listeners. Both receive the same `detail`. The two `qtoys:` events below are browser events only.
+
+```js
+window.subscribeEvent('cart:updated', (detail) => {
+  console.log(detail);
+});
+```
+
+## Events
+
+| Event | Fires when | `detail` |
+| --- | --- | --- |
+| `cart:request` | A cart change starts, before the server responds | `type` (add or change), `items`, `key`, `quantity` |
+| `cart:updated` | A cart change succeeds | `source`, `items`, `cart` |
+| `cart:show` | The cart drawer is about to open after an add | `source` |
+| `cart:error` | A cart change fails (sold out, server or network error) | `message`, `source` |
+| `cart:unavailable` | The shopper can't add yet — no valid variant selected | `reason` (`no-variant` or `invalid-variant`), `sectionId`, `source` |
+| `variant:change` | The variant picker resolves a selection | `variant` (empty when incomplete), `sectionId` |
+| `drawer:open` | Any drawer or dialog opens — cart, quick view, menu, info drawer | `id`, for example `cart-drawer` or `quick-view` |
+| `drawer:close` | Any drawer or dialog closes | `id` |
+| `search:submit` | A search form is submitted | `query` |
+| `search:results` | Predictive search shows new suggestions | `query`, `count` |
+| `newsletter:submit` | A newsletter form posts back | `success` |
+| `qtoys:kids-change` | **My kids** in the customer account saves or removes a child | `kids` — a list of `{ name, birth }`, with `birth` as `YYYY-MM` |
+| `qtoys:wishlist-change` | A toy is saved or removed with the wishlist heart | `handles` — product handles, newest first |
+| `section:render` | A section re-renders after a variant change, filter or sort | `attr`, `regions` |
+
+`items`, `cart`, `key`, `quantity`, `sectionId` and `source` are only included when they apply. Saved kids and the wishlist are kept in the shopper's browser's local storage under `qtoys:kids` and `qtoys:wishlist`.
+
+## Variant changes in one buy box
+
+For code that only cares about one buy box on the page — for example a sticky add-to-cart bar inside the same section — each variant picker also fires `qtoys:variant-change`. It bubbles from that `<qtoys-variant-picker>` element instead of firing on `document`.
+
+```js
+document
+  .querySelector('qtoys-variant-picker')
+  .addEventListener('qtoys:variant-change', (event) => {
+    console.log(event.detail.variant);
+  });
+```
+
+## Example — track adds to cart
+
+```html
+<script>
+  document.addEventListener('cart:updated', (event) => {
+    if (event.detail.source !== 'add') return;
+    for (const item of event.detail.items ?? []) {
+      console.log('Added', item.id, item.quantity);
+    }
+  });
+</script>
+```
+
+## Example — react to a saved child
+
+```html
+<script>
+  document.addEventListener('qtoys:kids-change', (event) => {
+    console.log('Saved kids', event.detail.kids);
+  });
+</script>
+```
+
+Add scripts like these with a **Custom liquid** section, or through your app's app embed — not by editing theme files. See [Custom code](/docs/advanced/custom-code).

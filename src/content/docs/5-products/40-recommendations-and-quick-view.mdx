@@ -1,0 +1,60 @@
+---
+title: "Recommendations, quick view and recently viewed"
+description: "Related and complementary products, the quick view window with the grow line and age check, quick add, the wishlist heart and the recently viewed strip."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Product recommendations
+
+Add the **Product recommendations** section below the product information.
+
+- **Related products** are chosen automatically by Shopify from purchase and browsing patterns.
+- **Complementary products** are the ones you pick in the **Search & Discovery** app — for example extra pieces for a building set.
+
+Add the section twice to show both.
+
+Choose a **Layout**:
+
+- **Rows** — each product in a compact row: a color band, a thumbnail, the name with its `custom.subtitle` line, the grow bar, the price and an add button.
+- **Cards** — product cards in a row, each with its grow bar, age range and skills. The product templates use this layout.
+
+<img width="800" height="353" src="/images/docs/product-recommendations.png" alt="The Product recommendations section in the Cards layout: four toy cards on pastel tiles, each with its grow bar, age range, skill dots and price." />
+
+<SettingsTable section="product-recommendations" />
+
+## Quick view and quick add
+
+Turn these on with **Enable quick add** and **Enable quick view** in **Theme settings > Product cards**.
+
+- **Quick add** puts an add button on each card. Products with one variant go straight to the cart; products with options open quick view, or the product page when quick view is off.
+- **Quick view** opens a window with the gallery on the toy's tile color, skill chips, title, rating, price, the grow line with the *How old is your child?* age check, the variant picker, buy button and Shop Pay Installments messaging, so shoppers can buy without leaving the collection.
+
+<img width="800" height="599" src="/images/docs/quick-view.png" alt="The quick view window: the toy on a pastel tile beside skill chips, the title and price, the grow line with age chips and a fit message, and an Add to bag button." />
+
+The age check in quick view works as it does on the product page: picking an age, or having a child saved under **My kids**, marks that band on the line and says how the toy fits. See [How the grow line works](/docs/grow-line/how-the-grow-line-works).
+
+## Wishlist heart
+
+**Show wishlist heart** in **Theme settings > Product cards** adds a heart to every product card. Shoppers tap it to save a toy, and see their saved toys on a page that uses the **wishlist** template.
+
+<Callout type="note" title="The wishlist stays in the browser">
+Saved toys are kept in the shopper's browser, up to 48. The list isn't linked to a customer account, doesn't follow the shopper to another device or browser, and isn't visible in your admin. Clearing browser data empties it.
+</Callout>
+
+## Recently viewed
+
+The **Recently viewed** section shows the products a shopper opened last, newest first. The history is saved in the shopper's browser, so it works without an account and stays on that device. Add the section to your product template so views are recorded, and to any other page where you want the strip. A clear link, labeled with **Clear link label**, lets shoppers empty it.
+
+Choose a **Card style**:
+
+- **Line** — a single scrolling line of small thumbnails, each with a thin color band underneath. It takes little room at the bottom of a page.
+- **Product card (matches recommendations)** — full product cards, so the strip matches a **Product recommendations** section in the **Cards** layout.
+- **Compact row** — a square image, the name and the price. The default product template uses this style.
+
+When a shopper has no history yet, the section shows a fallback under its own heading: recommendations for the current product on product pages, or the collection you pick elsewhere. Leave the collection empty to hide the section on other pages until there's a history.
+
+<img width="800" height="244" src="/images/docs/recently-viewed.png" alt="The Recently viewed section in the Compact row style: a row of square toy images, each with its name and price, and a Clear history link on the right." />
+
+<SettingsTable section="recently-viewed" />

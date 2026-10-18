@@ -1,0 +1,63 @@
+---
+title: "Cart drawer, cart page and notifications"
+description: "Choose what happens after add to cart, show each toy's age range and grow bar in the bag, check toys against a saved child's age, set a free shipping goal, and offer upsells and gift notes."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## What happens after add to cart
+
+In **Theme settings > Cart**, set **After adding to cart**:
+
+- **Open the cart drawer** — a panel slides in with the bag, a free shipping meter and upsells.
+- **Go to the cart page** — classic behavior.
+- **Show a notification** — a small confirmation under the header, so shoppers keep browsing.
+
+Every add to cart shows a loading state on the button and a confirmation, so shoppers always know it worked.
+
+## Toys in the bag
+
+In the cart drawer and on the cart page, each line shows the toy's options, its age range — *6m – 2y* in the drawer, *6 months – 2 years* on the cart page — and its pre-loved condition when the product has a `custom.condition` metafield. Line properties, such as *Gift wrap* from the product page's **Gift wrap** block, are listed under the options.
+
+Each line can also show the toy's grow bar — **Show each toy's grow line** in the cart drawer, **Show grow lines** on the cart page. Products without `custom.age_bands` show no age range and no bar. See [Product data](/docs/products/product-data).
+
+### Age check for a saved child
+
+When a shopper has saved a child under **My kids** on the account page, a line above the cart items checks every toy against the child's age — for example *Every toy here suits Bin (14 months).* or *1 of 3 toys are outside Bin's stage (14 months).* The child's name and birth month are kept in the shopper's browser only; without a saved child, the line doesn't show. See [How the grow line works](/docs/grow-line/how-the-grow-line-works).
+
+## Free shipping goal
+
+Set **Free shipping threshold** in **Theme settings > Cart** (in your store's currency); 0 hides the meter. The drawer and the cart page show how much is left until free shipping. Add a **Second milestone amount** and **Second milestone reward** in the cart drawer section — for example free gift wrap at a higher amount.
+
+**Free shipping progress** draws the drawer's meter as a **Sprout** — a thick bar with a sprout riding the fill — or a thin **Bar**. The meter shows only when the shopper is paying in your store's own currency.
+
+<Callout type="note" title="The meter doesn't change shipping rates">
+The meter is a message. Set up the matching free shipping rate in **Settings > Shipping and delivery**.
+</Callout>
+
+## Cart drawer
+
+The drawer lists the bag, then up to two upsell products that aren't already in it, an optional gift note and the order total with checkout. Choose the upsells in **Products** under **Upsells**. **Show gift note** adds a field for a note, saved as the order note. When the bag is empty, the drawer shows the **Text** and button you set under **Empty bag**.
+
+<img width="544" height="1179" src="/images/docs/cart-drawer.png" alt="The cart drawer open: the sprout free shipping meter, an age check line for a saved child, two toy lines each with its age range and grow bar, an upsell, and the subtotal with a Checkout button." />
+
+<SettingsTable section="cart-drawer" />
+
+## Cart page
+
+The cart page lists each item with its image, options, age range, selling plan, discounts and unit price, plus quantity controls. It supports discount codes, automatic discounts and accelerated checkout buttons. Order notes appear when **Enable order notes** is on in **Theme settings > Cart**.
+
+Add an **Extra summary line** — for example *Gift wrap* with the value *Free* — to show one more line in the order summary. It's a message only and doesn't change the total.
+
+<img width="800" height="501" src="/images/docs/main-cart.png" alt="The cart page: toy lines each with its image, age range, grow bar, quantity and total, and the summary panel with a discount code field and Checkout." />
+
+<SettingsTable section="main-cart" />
+
+## Cart notification
+
+Shows after an add to cart when **After adding to cart** is **Show a notification**. Choose a **Style**: **Color toast** is a small notice with a color band, the product's image and name and a link to the bag. **Classic** shows the line just added, with *View bag*, checkout and *Continue shopping*. Set how long it stays with **Close after**.
+
+<img width="528" height="240" src="/images/docs/cart-notification.png" alt="The Color toast cart notification under the header: a color band, the toy's thumbnail, Added to bag, its name and a View bag link." />
+
+<SettingsTable section="cart-notification" />

@@ -1,0 +1,28 @@
+# QToys Docs — Astro on Netlify (docs, FAQ, support form)
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Support form auto-reply: netlify/functions/submission-created.mjs
+[functions]
+  directory = "netlify/functions"
+
+
+[[redirects]]
+  from = "https://qtoys-docs.netlify.app/*"
+  to   = "https://qtoys.qdn.vn/:splat"
+  status = 301
+  force = true

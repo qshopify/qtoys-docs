@@ -1,0 +1,76 @@
+---
+title: "Collection pages"
+description: "Collection banner layouts with age band links, the product grid, age and skill filters, filter chips, the gift guide collection template and the all-collections page."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+A collection page has two main sections: the **Collection banner** at the top and the **Product grid** below it. The default collection template ends with **Recently viewed**.
+
+## Collection banner
+
+Shows the collection title, description and product count. Choose a **Layout**:
+
+- **Band** — a block of color beside a large title, with the description and product count at the far edge of the band. The color is **Band color**; when that's blank, it's the collection's `custom.color` metafield, or else the color scheme's grow color. Band is the layout of the default collection template.
+- **Classic** — breadcrumbs, a large title and description, and **Collection pills navigation**: a row of links beside the heading — for example toy types — with the current one highlighted.
+- **Cover image** — a full-width image with the title, description and product count over a soft shade. Set how tall it is with **Cover height**: **Small**, **Medium** or **Large**.
+
+The cover image is the section's **Image override**, or else the collection image, or else the image of the collection's first product — so a collection without its own artwork still gets a cover. With the Band and Classic layouts, turn on **Show collection image** to show the image below the copy.
+
+With **Show the age bands** on, the six age bands from **Theme settings > Grow line** sit under the copy as links. Each one shows this collection filtered by that band, and the band in the active filter is marked. The links need the age filter set up in **Search & Discovery**, as below.
+
+<img width="800" height="108" src="/images/docs/collection-banner.png" alt="The Toys collection opening with the Band layout: a pink color band beside the large title, the description and product count, and six age band links from 0–6m to 5–8y under it." />
+
+<SettingsTable section="collection-banner" />
+
+## Product grid
+
+- **Filtering** uses Shopify's own filters. Choose which filters appear (availability, price, product type, vendor, variant options, metafields) in the **Search & Discovery** app.
+- **Sorting** offers Shopify's sort orders: featured, best selling, alphabetical, price and date.
+- **Pagination** can be a *Load more* button or page numbers.
+- Cards show the toy on its tile color, the grow bar and age range, skill dots, badges, a pre-loved condition, the wishlist heart and price ranges for products with several prices. Which of these show is set in **Theme settings > Product cards** and **Theme settings > Grow line**.
+
+Filtering, sorting and *Load more* update the grid without reloading the page.
+
+<img width="800" height="612" src="/images/docs/collection-page.png" alt="A collection page: the filter sidebar with the age filter drawn as six grow line segments and the skills filter as colored chips, the toolbar with sort and per-row controls, and toy cards with grow bars." />
+
+Add a **Promo tile** block to place a campaign tile first in the grid, on the first page. Add **Sidebar card** and **Sidebar image** blocks to show a short message or an image under the filters on desktop — for example a card that links to your gift finder.
+
+### Age and skill filters
+
+Filters need the **Search & Discovery** app. In the app, add product metafield filters on `custom.age_bands` and `custom.skills`, and optionally on `custom.condition` for pre-loved toys. QToys draws them in its own way:
+
+- the age filter as the six grow line segments, in the order of **Age bands** in **Theme settings > Grow line**,
+- the skills filter as chips tinted with the skill colors.
+
+Then point **All toys collection** in **Theme settings > Grow line** at the collection these filters run on. Age band links in the header, collection banners, the home age picker and the account page all use it with the **Age filter** parameter. See [Grow data](/docs/grow-line/grow-data).
+
+<Callout type="note" title="Filters come from Shopify">
+The theme can only show filters that Shopify provides. If a filter doesn't appear, check that it's added in **Search & Discovery** and that the products in the collection have values for that metafield.
+</Callout>
+
+### Filter chips
+
+**Show filter chips** shows one filter as a row of chips above the grid, each with a tick of color. Enter the filter's name in **Chip filter**, or leave it blank to use the first list filter. A chip's color is the filter value's swatch, or else the `custom.color` metafield of the collection with the same name, or else a color from the section's color scheme. Chips need filtering to be on, and keep the other active filters when shoppers pick one.
+
+<SettingsTable section="main-collection" />
+
+## Gift guide collection template
+
+Assign the **gift-guide** collection template to a collection — for example *Gifts under $50* — to turn it into a gift guide. It opens with a hero, then **Collection tabs** by budget, a **Collection list** of who it's for, a featured product, a featured collection of gift sets, a comparison of delivery dates and an image with text band for gift cards. Every section in the template can be changed or removed like on any other page.
+
+<img width="800" height="443" src="/images/docs/collection-gift-guide.png" alt="The Gifts under $50 gift guide: a split hero, then collection tabs by budget with toy cards below." />
+
+## All collections page
+
+The page at `/collections` lists every collection. Choose a **Layout**:
+
+- **Editorial mosaic** — tiles in a repeating pattern of sizes, each with the product count, title, a line of the description and an *Explore* link. A tile uses the collection image, or else the collection's `custom.color` metafield as its background.
+- **Image grid** — image cards in columns, with **Image shape (grid)** and **Columns on desktop (grid)**. The default template uses it.
+
+Both layouts show each collection's age span: the bands of the grow line its toys cover. Collections whose products have no `custom.age_bands` show no span. The default template follows the list with **Skill tiles** and an image with text band.
+
+<img width="800" height="373" src="/images/docs/main-list-collections.png" alt="The Collections list page in the Image grid layout: collection images with the title, product count and a grow bar under each showing the age bands the collection covers." />
+
+<SettingsTable section="main-list-collections" />

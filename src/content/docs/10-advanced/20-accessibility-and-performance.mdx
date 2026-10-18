@@ -1,0 +1,30 @@
+---
+title: "Accessibility and performance"
+description: "What QToys does for accessibility and speed, and how to keep your store fast and readable as you customize it."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Accessibility built in
+
+- Every interactive element can be reached and used with a keyboard, with a visible focus outline.
+- The grow line never relies on color alone: every toy's age range is also written out as text, such as *6 months – 2 years*, and skills are named next to their colored dots.
+- A *Skip to content* link is the first thing keyboard users reach.
+- Drawers, menus and dialogs trap focus while open and return it when closed.
+- Preset color schemes meet WCAG AA contrast. Autoplaying slideshows and videos have pause controls, and animation respects *reduce motion*.
+
+**Your part:** write alt text for images (in **Content > Files** or on each product image), keep enough contrast if you change colors — including the grow line colors — and avoid putting essential text, such as safety warnings, inside images. Use the toy metafields for safety, materials and what's in the box instead.
+
+## Performance built in
+
+- Images are responsive and lazy-load below the fold; the first image loads with high priority.
+- Videos load only when a shopper presses play.
+- The grow line and skill tags are drawn with HTML and CSS from your metafields — no extra images or requests.
+- Scripts are small, load without blocking the page, and run only where a section needs them.
+
+**Your part:**
+
+- Upload images at a sensible size — around 2,400 px on the long side is plenty.
+- Keep the home page to the sections that earn their place.
+- Every app adds code. Remove apps you no longer use, and check their app embeds in **Theme settings > App embeds**.

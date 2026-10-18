@@ -1,0 +1,52 @@
+---
+title: "Product templates"
+description: "Ready-made product templates — default, play box, bundle, pre-order, subscription, showcase and gift card — and how to assign them."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+QToys ships several product templates. Each one is the same **Product information** section with a different set of blocks and settings, followed by its own sections. Assign one in your admin: open a product, find **Theme template** in the right column, choose the template and save.
+
+| Template | What changes |
+| --- | --- |
+| **Default product** | The **Thumbnails on the side** gallery and a buy box with skills, the **Grow line** block with its age check, a wishlist button, gift wrap, perks, safety and materials, and a trade-in note. Below: **Play stages**, reviews, **Product recommendations** and **Recently viewed**. |
+| **play-box** | For a toy box sold by stage. A **Lead image, three below** gallery and a short buy box, followed by two **Box contents** sections — what's inside the selected stage, and how the box grows across every stage — a comparison table and an FAQ. |
+| **bundle** | Lists what's inside the set with the **What's inside** block, adds a *Why a set* band and a **Bundle builder** so shoppers can build their own set. |
+| **preorder** | Sets the buy button to *Pre-order* with a ship-date note, and adds a *What happens after you pre-order* band. Edit the label and note yourself, as below. |
+| **subscription** | Shows the product's selling plans, a *how it works* band and an FAQ. The product needs a subscription app that creates selling plans. |
+| **showcase** | A **Lead image, three below** gallery, a **Delivery estimate** block, and storytelling sections underneath — specs, a video and an FAQ. Use it for a signature toy. |
+| **gift-card** | The **Gift card recipient** form. Use it for your gift card product. |
+
+<img width="800" height="578" src="/images/docs/product-play-box.png" alt="The Play Box product page: a large lead image with three below, and the buy box with the eyebrow Grows with them, the title, a stage picker, price and perks such as Skip or cancel any time." />
+
+The **Grow line** block is in every template except **play-box** and **gift-card**. To add it to another template, open it in the theme editor and add the block to **Product information**. See [Grow line](/docs/products/product-page#grow-line).
+
+## Play box
+
+The **play-box** template is built for a product with one variant per stage — for example a *Stage* option with values for each age. Both **Box contents** sections read the option named in **Stage option name**:
+
+- **What's inside the selected stage** shows the toys in the stage the shopper has picked, and changes when they pick another.
+- **How the box grows (every stage)** shows every stage as a timeline.
+
+Add one **Stage** block per stage, and pick up to four toys for each. See [Box contents](/docs/grow-line/grow-sections#box-contents).
+
+<img width="800" height="540" src="/images/docs/box-contents.png" alt="The Box contents section: the heading Inside the box and four toy cards for the selected stage, each with its image, name and subtitle." />
+
+<SettingsTable section="box-contents" />
+
+## Create your own template
+
+In the theme editor, open the template picker at the top, choose **Products** and select **Create template**. Base it on the template closest to what you want, then change its blocks and sections. Assign it to products from their **Theme template** setting, as above.
+
+## Subscriptions
+
+When a product has selling plans, the buy box shows a one-time / subscribe choice and the plan's price. **Pre-select the first subscription plan** in **Theme settings > Subscriptions** makes subscribing the default. The chosen plan appears on the cart line.
+
+## Pre-orders
+
+In the **preorder** template, open the **Buy buttons** block and set **Button label override**, such as *Pre-order*, and **Note under the button** for the expected ship date. Connect the note to a product metafield to give each product its own date.
+
+## Gift cards
+
+Create a gift card product in **Products > Gift cards**, assign the **gift-card** template, and keep the **Gift card recipient** block if you want shoppers to send it to someone. After purchase, the recipient receives an email with a link to your store's gift card page, which shows the code, a QR code and an *Add to Apple Wallet* button.

@@ -1,0 +1,23 @@
+---
+title: "Search"
+description: "Predictive search in the header and the full search results page with tabs, filters and sorting."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Predictive search
+
+As shoppers type in the header search, QToys suggests related search terms, collections, journal articles and products. Each product suggestion shows its image, name, grow bar, age range and price, so shoppers can tell who a toy is for before they open it. A link at the bottom opens the full results for the search.
+
+Predictive search uses Shopify's own search, so there's nothing to set up. Products without a `custom.age_bands` metafield show no grow bar.
+
+<img width="800" height="178" src="/images/docs/predictive-search.png" alt="Predictive search open under the header for the term toy: suggested searches, and product rows each with a thumbnail, name, grow bar, age range and price." />
+
+## Search results page
+
+Results are grouped into tabs — **All**, **Products**, **Journal** and **Pages**. Products show as product cards, and articles and pages as text cards. The page has the same filters and sorting as collections, including the [age and skill filters](/docs/collections-and-search/collection-pages#age-and-skill-filters) when you've set them up. When nothing matches, shoppers see a message and can search again from the same page. The default search template ends with a **Featured blog** section.
+
+<img width="800" height="535" src="/images/docs/main-search.png" alt="The search results page: the search term as a large heading with a search button, the All, Products, Journal and Pages tabs, filters on the left and matching toy cards." />
+
+<SettingsTable section="main-search" />

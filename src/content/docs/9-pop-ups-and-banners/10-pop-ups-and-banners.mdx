@@ -1,0 +1,48 @@
+---
+title: "Newsletter popup, cookie banner and info drawer"
+description: "Overlays that appear on every page: a newsletter popup, a cookie consent banner and a side drawer for care, safety or play ideas."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+Add these sections to the **Footer** group so they work on every page.
+
+## Newsletter popup
+
+Opens after the number of seconds in **Open after**. Turn on **Also open when the pointer leaves the page** to also open it when a desktop shopper moves the pointer off the page. Once a shopper closes it or signs up, it stays closed for the rest of their visit, and for the number of days in **Keep closed after dismissal**. Set it to 0 to show the popup again in the next visit. After signing up you can show a thank-you message with a discount code — create the code in **Discounts** first.
+
+Turn on **Ask for the child's birthday** to add an optional month and year field, so you can send play tips for the child's age band.
+
+Choose a **Layout**: **Docked card** is a small card in the bottom-left corner that leaves the page usable. **Centered modal** opens in the middle of the page over a scrim.
+
+<img width="800" height="553" src="/images/docs/newsletter-popup.png" alt="The newsletter popup docked in the bottom-left corner: a heading, one line of text, an email field, an optional child's birthday field and a Get my 10% button, with the page still visible behind it." />
+
+<SettingsTable section="newsletter-popup" />
+
+## Cookie banner
+
+QToys works with Shopify's own cookie banner. If you turn on the banner in **Settings > Customer privacy**, the QToys banner stays hidden. If you prefer the QToys design, leave Shopify's banner off and add this section — it only appears to visitors in regions that require consent, and every choice is saved through Shopify's Customer Privacy API, so analytics and marketing apps respect it.
+
+<img width="528" height="234" src="/images/docs/cookie-banner.png" alt="The cookie banner as a card in the bottom-right corner: a short message, a Manage link, and Reject non-essential and Accept all buttons." />
+
+Choose a **Layout**: **Card** is a small card in the bottom-right corner with a *Manage* link and two equal buttons to reject or accept. **Bar** runs along the bottom of the page. *Manage* opens a preferences dialog with a switch for analytics and one for marketing.
+
+Any link or button with the attribute `data-open="#cookie-preferences"` reopens the preferences dialog, so shoppers can change their choice later — for example a *Cookie settings* link added with a **Custom liquid** section.
+
+<SettingsTable section="cookie-banner" />
+
+## Info drawer
+
+A side panel with details, a table or text — care and cleaning, safety notes, play ideas, a returns summary. Open it from its own trigger button, or from any link or button on the page with the attribute `data-open="#drawer-ID"`, where *ID* is the **Drawer ID**. Turn off **Show trigger button** to keep only the drawer.
+
+
+The drawer is built from blocks:
+
+- **Detail** — a label, name and description with a color or image swatch, for example one per material.
+- **Table row** — a label and a value, for example *Fabric* and *Machine wash cold*.
+- **Link row** — links such as a care guide or returns page. Turn on **Open in a new tab** for files and outside pages.
+- **Text** — a paragraph of rich text.
+
+
+<SettingsTable section="info-drawer" />

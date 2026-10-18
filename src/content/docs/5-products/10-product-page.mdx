@@ -1,0 +1,97 @@
+---
+title: "Product page"
+description: "The product information section: gallery layouts, the Grow line block with its age check, skills, safety and materials, gift wrap, the wishlist button and every other block in the buy box."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+The product page is built from the **Product information** section. Everything in the buy box — title, price, grow line, variant picker, buy buttons, description — is a separate block, so you can reorder, remove or repeat them.
+
+<img width="800" height="585" src="/images/docs/main-product.png" alt="The product page for Rainbow Stacking Rings: thumbnails beside the main image on a pastel tile, and the buy box with skill chips, the title, price, the grow line headed Best for, age chips asking How old is your child, and the Add to bag button." />
+
+## Gallery
+
+All product media shows in the gallery: images, Shopify-hosted videos, YouTube and Vimeo videos and 3D models (with *View in your space* on supported phones). When a shopper picks a variant that has its own image, the gallery jumps to it. On phones, shoppers swipe through the media. When the product has a `custom.tile_color` metafield, its media sit on that color — handy for cut-out or illustrated toy photos.
+
+Choose a **Desktop gallery** layout:
+
+- **Thumbnails on the side** — a column of thumbnails to the left of the main image. The default product template uses it.
+- **Thumbnails below** — a row of thumbnails under the main image.
+- **Stacked grid** — every image at once, in a two-column grid. The buy box stays in view while shoppers scroll.
+- **Lead image, three below** — one large image, then the rest in a row of three. The **play-box** and **showcase** templates use it.
+
+Choose a **Media shape** for the frame, and **Media fit**: **Fill** crops images to the frame, **Fit** shows them whole. Images of different shapes are fitted into the same frame, so a mixed set never breaks the layout.
+
+<img width="642" height="553" src="/images/docs/product-gallery.png" alt="The gallery with thumbnails on the side: a column of thumbnails beside the main image of stacking rings on a pink tile." />
+
+Turn on **Sticky add-to-cart bar** to keep the product title, price and buy button in reach while shoppers scroll.
+
+<SettingsTable section="main-product" showBlocks={false} />
+
+## Grow line
+
+The **Grow line** block shows which of the six age bands the toy suits, read from the product's `custom.age_bands` metafield, with the age range as a heading — for example *Best for 6 months – 2 years*. Turn off **Show "Best for…" heading** to show the line alone. See [How the grow line works](/docs/grow-line/how-the-grow-line-works).
+
+With **Ask the child's age** on, age chips under the line ask *How old is your child?*. When a shopper picks an age — or has saved a child under **My kids** on the account page — that band is marked on the line and a message says how the toy fits: a little early, a good fit, right in the sweet spot, or probably outgrown. The age is kept in the shopper's browser only.
+
+<img width="480" height="227" src="/images/docs/grow-block.png" alt="The Grow line block: the heading Best for 6 months – 2 years over six age bands with two filled, age chips under the question How old is your child, and the message A good fit for this age." />
+
+<SettingsTable section="main-product" block="grow" />
+
+<Callout type="note" title="When the block is empty">
+A product without `custom.age_bands` shows no grow line and no age chips. The bands you tick must match **Age bands** in **Theme settings > Grow line** exactly. See [Grow data](/docs/grow-line/grow-data).
+</Callout>
+
+## Skills, safety and materials
+
+- **Skills** shows the product's `custom.skills` as chips — for example *Move* and *Think* — tinted with the skill colors from **Theme settings > Grow line**.
+- **Safety & materials** shows up to three panels from product metafields: the safety standard, whether there are small parts and a link to the test report; what the toy is made of; and what's in the box. Care instructions from `custom.care` follow in an accordion. Choose a **Layout** of **Stacked** or **Cards**. Panels without data are skipped, and the block hides when all are empty.
+
+<img width="480" height="330" src="/images/docs/safety-panels.png" alt="The Safety and materials block in cards: Tested and certified with the EN 71 standard and No small parts, What it is made of listing beech wood and water-based paint, and In the box." />
+
+<SettingsTable section="main-product" block="skills" />
+<SettingsTable section="main-product" block="safety" />
+
+The metafields are listed in [Product data](/docs/products/product-data).
+
+## Gift wrap, wishlist and trade-in
+
+- **Gift wrap** adds a switch under the buy button. When it's on, the item is added to the cart with a *Gift wrap* line property, which you see on the order. The theme doesn't charge for it — if you want to charge for wrapping, sell it as its own product. Turn on **On by default** to start with the switch on.
+- **Wishlist button** saves the product to the shopper's wishlist. The list is kept in the shopper's browser only: it isn't tied to a customer account, doesn't sync between devices and isn't visible to you in the admin. Saved toys show on a page using the **wishlist** template.
+- **Trade-in note** shows a short line, such as *Outgrown it later? Trade it in for store credit.*, with a link to your trade-in page.
+
+<SettingsTable section="main-product" block="gift_wrap" />
+<SettingsTable section="main-product" block="trade_in_note" />
+
+## Other buy box blocks
+
+- **Title** and **Price** — the title can show a **Subheading**; connect it to `custom.subtitle` for per-product copy. The price shows compare-at prices, unit prices and a *tax included* note when your store shows prices with tax.
+- **Text** — a line of text in **Eyebrow** or body style, for example *Pre-order* above the title.
+- **Variant picker** — **Pills** or a **Dropdown**. Colors show as swatches from your product's color swatches. Sold-out combinations stay visible but are marked.
+- **Buy buttons** — quantity, add to cart, accelerated checkout buttons and Shop Pay Installments messaging. Use **Button label override** and **Note under the button** for pre-orders.
+- **Inventory status** — shows a low-stock message when the real inventory is at or under your **Low stock threshold**.
+- **Pickup availability** — shows whether the selected variant can be picked up at your locations, with a link to all stores. Requires local pickup in **Settings > Shipping and delivery**.
+- **Delivery estimate** — an estimated delivery window from your own cut-off time and business days.
+- **Delivery and perks** — up to four short lines, such as free returns, as tiles, a stacked list or one row.
+- **Gift card recipient** — lets shoppers send a gift card to someone else by email, with a message and send date. Shown on gift card products only.
+- **Rating** — the product's `reviews.rating`, filled by review apps.
+- **Pairs with** — one related product, as a link or as an add-on that's added to the cart with this one.
+- **What's inside** — the products in a set, from the product's `custom.contents` metafield or the products you pick in the block.
+- **Collapsible tab**, **Trust badges**, **Share**, **Breadcrumbs**, **Vendor** and **SKU** — supporting details. Each one hides itself when it has nothing to show.
+- **Custom liquid** and **app blocks** — add review stars or other app features exactly where you want them.
+
+## Block settings
+
+<SettingsTable section="main-product" block="buy_buttons" />
+<SettingsTable section="main-product" block="collapsible" />
+
+Connect **Content** to a product metafield for per-product details, or pick a **Page content** to share one text, such as your returns policy, across products.
+
+<SettingsTable section="main-product" block="perks" />
+<SettingsTable section="main-product" block="pairs_with" />
+<SettingsTable section="main-product" block="contents" />
+<SettingsTable section="main-product" block="pickup" />
+<SettingsTable section="main-product" block="delivery" />
+<SettingsTable section="main-product" block="trust" />
+<SettingsTable section="main-product" block="share" />

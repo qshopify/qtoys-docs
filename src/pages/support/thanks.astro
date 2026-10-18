@@ -1,0 +1,21 @@
+---
+import Base from '../../layouts/Base.astro';
+import { site } from '../../config';
+---
+<Base title="Request sent · QToys Docs" description="Your support request has been received.">
+  <section class="wrap page-head thanks">
+    <div class="spec"><span class="dot"></span>REQUEST SENT</div>
+    <h1>Thanks — we’ve got <span class="it">it</span></h1>
+    <p>We’ve emailed you a confirmation. Someone from the team will reply within {site.responseTime}. If you don’t see the confirmation, check your spam folder.</p>
+    <div class="row">
+      <a class="cta" href="/docs">Browse the docs <span>→</span></a>
+      <a class="ghost" href="/faq">Read the FAQ</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .thanks { max-width:720px; padding-top:80px; padding-bottom:96px; }
+  .row { display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:28px; }
+  .ghost { font-weight:600; color:var(--accent-ink); text-decoration:underline; text-underline-offset:3px; }
+</style>

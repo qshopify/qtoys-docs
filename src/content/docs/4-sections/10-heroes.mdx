@@ -1,0 +1,77 @@
+---
+title: "Heroes and banners"
+description: "Hero, slideshow, image banner, page header and video sections — the big first impression."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+<Callout type="note" title="Looking for the Toy hero?">
+The **Toy hero**, built around the grow line and its age bands, is documented with the other grow line sections. See [Grow sections](/docs/grow-line/grow-sections).
+</Callout>
+
+## Hero
+
+The hero is the most flexible first section. Choose a **Layout**:
+
+- **Split — text beside image** with up to two stats and a floating product card. Set **Width** to **Edge to edge, 50 / 50** for a full-width band, and choose which side the image sits on with **Image position**.
+- **Full-bleed — text over image** with an optional background video.
+- **Full-bleed — text in a panel** for busy images where text needs a calm background. The panel uses its own **Panel color scheme**, placed by **Content position**.
+- **Statement — type only** for a bold line of copy.
+
+The floating card in the split layout shows a **Floating card product** — its title, `custom.subtitle` metafield and link fill in when you leave the card fields empty.
+
+Set a separate **Mobile image** for the full-bleed layouts when your desktop image is very wide. For background video, upload an MP4 in **Content > Files** and keep it short — it plays muted on a loop, and shoppers can pause it with the pause button.
+
+When the hero is the first section on a page, its heading becomes the page's main heading and its image loads first.
+
+<img width="800" height="267" src="/images/docs/hero.png" alt="A Hero section in the Split layout: eyebrow, heading, text and two buttons on the left, and a toy photo on the right." />
+
+<SettingsTable section="hero" />
+
+## Slideshow
+
+Several slides, each with its own image, copy and button. The image sits beside a copy panel with a slide counter, previous and next arrows, and one bar per slide. Choose the side with **Image position**.
+
+With **Autoplay** on, the active bar fills over the **Time per slide** and then moves on. Autoplay always includes a pause button, stops while the pointer or keyboard focus is inside the slideshow, and never runs for shoppers who prefer reduced motion.
+
+Pick a **Product** on a slide to draw that slide's bar in the product's color. The product also fills in the slide's image and button link when you leave those empty.
+
+<img width="800" height="175" src="/images/docs/slideshow.png" alt="The Slideshow section: a toy image beside a copy panel with a slide counter, heading, text, a button, one bar per slide and previous, next and pause controls." />
+
+<SettingsTable section="slideshow" />
+
+## Image banner
+
+A single wide image with a caption — a quiet break between sections. Choose its **Shape**. **Full width** runs the image edge to edge; turn it off to keep it inside the page width.
+
+Add **Eyebrow**, **Heading**, **Text** and **Button** blocks to show a solid text panel docked to a corner of the image, such as a link to a play guide. Choose the corner with **Text panel position** and its colors with **Text panel color scheme**. On phones the panel sits under the image. Without blocks, the section shows the image and its caption only.
+
+<SettingsTable section="image-banner" />
+
+## Page header
+
+A title band for pages, collections and blogs, with optional breadcrumbs, an image and a product or article count. Every part falls back to the page being viewed, so an empty section still shows the right title.
+
+Choose a **Style**:
+
+- **Plain** — a large title with the intro, date or count beside it on one line, closed by a rule. This style has no image.
+- **Editorial** — title and intro, small print at the foot and an image column on the right.
+
+**Show date** shows when a page was published, on pages that have no **Small print**.
+
+<img width="800" height="91" src="/images/docs/page-header.png" alt="A Page header section in the Plain style: breadcrumbs, a large title and the intro, closed by a rule." />
+
+<SettingsTable section="page-header" />
+
+## Video
+
+Play a Shopify-hosted video or a YouTube or Vimeo link in a 16:9 frame with a cover image. The player only loads when a shopper presses play, which keeps the page fast. Add a **Caption** and a **Caption detail**, such as the running time, under the video.
+
+**Play button** places either a labelled button at the bottom left, showing your **Play button label (screen readers)**, or a round button in the center.
+
+Enter up to three **Chapter labels** separated by commas to draw a chapter bar along the bottom of the video. Pick a **Chapter colors from product** to color it in that product's colors; without one, the color scheme's colors are used. Leave **Chapter labels** blank to hide the bar.
+
+<img width="800" height="527" src="/images/docs/video.png" alt="The Video section: a cover image of a play session with a play button at the bottom left, and a caption with the running time underneath." />
+
+<SettingsTable section="video" />

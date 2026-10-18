@@ -1,0 +1,89 @@
+---
+title: "Grow data"
+description: "The product metafields behind the grow line, skill tags and safety panels, how to create them, bulk editing, and the age filter in Search & Discovery."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+QToys keeps product copy out of the theme. The grow line, the skill tags, the play stages and the safety panels all read product metafields, so each toy carries its own details and every page shows the same information. Anything you leave empty simply hides.
+
+## Create the definitions
+
+Create the definitions in **Settings > Custom data > Products**, in the `custom` namespace, then fill them in on each product:
+
+1. In your Shopify admin, go to **Settings > Custom data** and select **Products**.
+2. Select **Add definition** and enter the name, such as *Age bands*.
+3. Check that the **Namespace and key** matches the table below, such as `custom.age_bands`.
+4. Choose the type. For lists, choose the type and then **List of values**. For `age_bands` and `skills`, turn on **Limit to preset choices** and add the choices.
+5. Save. The field now shows in the **Metafields** card at the bottom of each product.
+
+<img width="800" height="420" src="/images/docs/grow-data-definitions.png" alt="Shopify admin, Settings > Custom data > Products, listing the QToys definitions: Condition, Care, Test report, In the box, Materials, Small parts, Safety standard, Play stages, Subtitle, Tile colour, Skills and Age bands." />
+
+## Product metafields
+
+| Metafield | Type | What it drives | Example |
+| --- | --- | --- | --- |
+| `custom.age_bands` | List of single line text, with choices | The grow line everywhere. Required: without it, the toy shows no line. | `6–12m`, `1–2y` |
+| `custom.skills` | List of single line text, with choices | Skill dots on cards and chips on the product page | `Think`, `Move` |
+| `custom.tile_color` | Color | The background behind the toy on cards and product media | `#FFE3F1` |
+| `custom.subtitle` | Single line text | One line under the title, on cards and in box contents | `Five rings and a top bead` |
+| `custom.play_stages` | JSON | The [Play stages](/docs/grow-line/grow-sections#play-stages) section | See [Play stages](#play-stages) |
+| `custom.safety_standard` | Single line text | Safety panel | `EN 71 · ASTM F963` |
+| `custom.small_parts` | True or false | Safety panel. *False* shows that the toy has no small parts. | `false` |
+| `custom.materials` | List of single line text | Materials panel | `FSC beech`, `Water-based paint` |
+| `custom.in_the_box` | List of single line text | In the box panel | `5 rings and a top bead` |
+| `custom.test_report` | File | A **Download PDF** link in the safety panel | A PDF |
+| `custom.care` | Rich text | Care tab | |
+| `custom.condition` | Single line text, with choices | The pre-loved badge on cards, in the cart and on the product page | `Like new`, `Good`, `Well loved` |
+
+### Age bands
+
+Tick every band the toy suits. QToys derives the age range, such as *6m – 2y* on cards or *6 months – 2 years* on the product page, from the first and last band you tick.
+
+<Callout type="warning">
+The choices must match **Age bands** in **Theme settings > Grow line** exactly, including the en dash in *0–6m*. By default they are `0–6m`, `6–12m`, `1–2y`, `2–3y`, `3–5y` and `5–8y`. A value that doesn't match a band label won't fill a band. In the same way, the `skills` choices must match **Skill names**, by default `Move`, `Think`, `Feel`, `Pretend` and `Create`.
+</Callout>
+
+### Play stages
+
+`custom.play_stages` is a JSON list. Each stage has an `age`, a `title` and a `text`:
+
+```json
+[
+  { "age": "6 months", "title": "Grab and mouth", "text": "Single rings fit small hands." },
+  { "age": "12 months", "title": "Pull off, knock down", "text": "Taking rings off comes first." },
+  { "age": "18 months", "title": "Stack in any order", "text": "Hand-eye coordination at work." },
+  { "age": "2 years", "title": "Sort by size and colour", "text": "A first game of order and words." }
+]
+```
+
+## Fill in many products at once
+
+- **Bulk editor** — in **Products**, select the toys, then **Bulk edit**. Use **Columns** to add the metafield columns, such as Age bands and Skills, and fill them in like a spreadsheet.
+- **CSV import** — Shopify's product CSV includes metafield columns, such as `Age bands (product.metafields.custom.age_bands)`. Export a few products first to see the exact column names, fill them in, and import. List values go in one cell, separated by commas.
+
+Create the definitions before you import, so the values land in the right fields.
+
+## Collection filters
+
+The grow line, the cards and the sections work without any app. Filtering a collection by age or skill needs Shopify's free Search & Discovery app:
+
+1. Install the Search & Discovery app and open **Filters**.
+2. Select **Add filter** and choose the **Age bands** product metafield. Add **Skills** too, and **Condition** if you sell pre-loved toys.
+3. Save. Turn on filtering in the collection page's product grid section if it's off.
+
+QToys draws the age bands filter as the six grow line segments, in your band order, and the skills filter as colored chips. Its parameter is `filter.p.m.custom.age_bands`, which is the default **Age filter** in **Theme settings > Grow line**. Point **All toys collection** at the collection those filters run on, so band links in the collection banner, the age shop and the account page open it already filtered.
+
+<Callout type="note">
+Without the filters, band links and the [Gift finder](/docs/grow-line/grow-sections#gift-finder) still open the collection, but it isn't filtered by age.
+</Callout>
+
+
+## Checklist for each new toy
+
+- Tick its **Age bands**.
+- Pick its **Skills**.
+- Add a **Tile color** if its photos are cut out or illustrated.
+- Fill in the safety standard, small parts, materials and what's in the box.
+- Add **Play stages** if the product page uses that section.

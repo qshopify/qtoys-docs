@@ -1,0 +1,39 @@
+---
+title: "Blog and articles"
+description: "Four blog layouts, featured articles, tag filters, and article options such as contents, drop cap, the color rail, the toys in an article and share links."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Blog layouts
+
+Pick a **Layout** in the **Blog posts** section:
+
+- **Grid** — cards with an optional featured latest article. The default blog template uses it, followed by a **Newsletter** section.
+- **Index list (grouped by month)** — a compact archive for frequent publishers.
+- **Grid with sidebar** — a blog search, tags and a newsletter signup beside the grid.
+- **Rows** — one ruled row per article: image, tag and reading time, title, and the toy the article is about.
+
+QToys also includes two alternate blog templates you can assign to a blog: **list**, set to the index list layout, and **sidebar**, set to the grid with sidebar.
+
+Cards use each article's image, title and excerpt. Write a short excerpt in the article editor; without one, the start of the article is used. Tag filters use Shopify's own tag pages — for example tags for play ideas or age stages.
+
+To link an article to a toy, fill the article's `custom.product` metafield with a product or a list of products. See [Product data](/docs/products/product-data).
+
+<img width="800" height="514" src="/images/docs/main-blog.png" alt="The Journal blog page: the title, tag chips, and the newest article featured large with its image beside the title, excerpt and a link to read it." />
+
+<SettingsTable section="main-blog" />
+
+## Articles
+
+Articles show the title, publish date, author and featured image, then tags and share links. **Show "In this story" contents** builds a table of contents from the article's H2 subheadings. Comments appear when you allow them on the blog, and are paginated.
+
+- **Show color rail** runs a band of colors beside the reading column — from the first product in the article's `custom.product` metafield, or else colors from the section's color scheme.
+- **Show products in this article** adds an *In this article* list of the products in `custom.product`. Without the metafield, the list is hidden.
+
+The default article template ends with a **Featured blog** section showing more articles.
+
+<img width="800" height="437" src="/images/docs/main-article.png" alt="An article page: the tag, a large title, the byline with date, the cover image, and the reading column beside a color rail." />
+
+<SettingsTable section="main-article" />

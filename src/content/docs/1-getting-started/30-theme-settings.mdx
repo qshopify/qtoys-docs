@@ -1,0 +1,115 @@
+---
+title: "Theme settings"
+description: "Store-wide settings: favicon, color schemes, fonts, page width, product cards, shapes and sizes, the grow line and skills, cart behavior, social media links and the five presets."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+Theme settings apply to every page. Open them from the theme editor by clicking the **paintbrush icon** in the left sidebar.
+
+## Presets
+
+QToys comes in five presets. Each one is a full set of theme settings plus its own home page, header and footer. Choose a preset when you add the theme from the Theme Store; after that, every setting below can be changed.
+
+| | QToys | Sprout | Rocket | Pebble | Pop |
+| --- | --- | --- | --- | --- | --- |
+| Made for | All-round toy store (Myoi Toys) | Story-led wooden toys (Little Grove) | Bold, high-volume stores (Rocket & Co) | Calm Montessori stores (Pebble & Oak) | Party toys and gifts (Pop Party) |
+| Palette | Pink and sky blue on soft white | Deep green on off-white and sage | Yellow and royal blue on white | Warm brown on linen | Purple and lemon on cream |
+| Heading font | Fredoka, bold | Quicksand, bold | Poppins, extra bold | Outfit, semibold | Grandstander, extra bold |
+| Body font | Montserrat | Nunito | Poppins | DM Sans | Nunito Sans |
+| **Button shape** | Pill | Soft corners | Pill | Soft corners | Pill |
+| **Heading size** | 100% | 100% | 105% | 100% | 110% |
+| Skill colors | Pink, sky, sunny, blue, lime | Leaf, sky, sunny, wood, peach | Red, blue, yellow, violet, green | Muted sage, slate, ochre, clay, lilac | Coral, blue, lemon, purple, teal |
+| Header layout | Logo left, mega menu, search field | Menu button on every screen, dropdown | Logo left, mega menu | Logo on top, dropdown menu | Logo left, mega menu |
+| Home page opens with | Toy hero, age shop, skill tiles | Split hero, age shop, image with text | Slideshow, collection circles, countdown | Statement hero, age shop, image banner | Toy hero, gift finder, collage |
+
+Every preset uses the **Shop by age** footer layout and the same product and collection templates. Page width, product cards and cart settings are the same in each preset.
+
+## Logo and favicon
+
+Your logo is set in the **Header** section (and, optionally, the **Footer** section), so you can size it per layout. Without a logo image, both show a text wordmark — which can be split into two colors with a small tag after it, like *my|oi toys*. The favicon — the small icon in the browser tab — is set here.
+
+<SettingsTable global="Favicon" />
+
+## Colors
+
+QToys uses **color schemes**: named sets of background, text, border, button and accent colors. Every section has a **Color scheme** setting, so you can alternate light and tinted bands down a page while keeping every color pairing accessible.
+
+Each scheme also has three grow line colors: **Age bands it fits** colors the bands a toy covers, **Next band** tints the band a child grows into next, and **Empty band** colors the rest of the line. Because they change per scheme, a grow line on a tinted section can use different colors from one on white.
+
+<SettingsTable global="Colors" />
+
+<Callout type="tip" title="Keep text readable">
+When you change a scheme, check the contrast between **Background** and **Text**, and between **Button** and **Button label**. Aim for a ratio of at least 4.5:1 for body text. Keep **Age bands it fits** clearly different from **Empty band** so the grow line stays easy to read.
+</Callout>
+
+## Typography
+
+Choose two fonts from Shopify's font library: one for headings and one for body text. Rounded faces suit QToys. Bold and italic styles load automatically.
+
+The defaults are **Fredoka** (bold) for headings and **Montserrat** for body text. The other presets use their own fonts — see [Presets](#presets). Use **Heading size** under **Shapes and sizes** to scale every heading at once.
+
+<SettingsTable global="Typography" />
+
+## Layout
+
+<SettingsTable global="Layout" />
+
+## Product cards
+
+These settings apply to every product card in the store — collection grids, featured collections, recommendations and search results. Cards also read a toy's age bands, skills, tile color, condition and rating when they're set; tag a product `badge:Bestseller` to show a badge. Whether cards show the grow line and skills is set under [Grow line](#grow-line).
+
+Turn on **Show wishlist heart** to let shoppers save toys. Saved toys are kept in the shopper's browser; show them on a page that uses the *Wishlist* template, and choose that page in the header's **Wishlist page** setting for a heart with a count.
+
+<SettingsTable global="Product cards" />
+
+## Shapes and sizes
+
+Shapes and sizes change the feel of every page at once:
+
+- **Button shape** — **Square**, **Soft corners** or **Pill**.
+- **Button text** — **Sentence case** or **Uppercase**.
+- **Heading size** — scales every heading from 80% to 120% of the default.
+
+<SettingsTable global="Shapes and sizes" />
+
+## Grow line
+
+The grow line reads each product's `custom.age_bands` metafield — a list whose values match your band names — and highlights the bands the toy fits. Products without it show no line. For how shoppers use it, see [How the grow line works](/docs/grow-line/how-the-grow-line-works).
+
+### Age bands
+
+- **Age bands** — six short labels, comma separated, youngest first. The defaults are `0–6m, 6–12m, 1–2y, 2–3y, 3–5y, 5–8y`. Use exactly the same names as the choices of your `custom.age_bands` metafield.
+- **Stage names** — a friendly name per band, shown in menus and the footer, such as *Newborn* or *Big kid*.
+- **Band edges in months** — one more number than bands, such as `0, 6, 12, 24, 36, 60, 96`. QToys uses them to place a child's age on the line.
+
+### Age links
+
+**All toys collection** is the collection that age links open — in menus, the footer, the product page and filters — filtered to one band. **Age filter** is the Search & Discovery filter parameter for the age bands metafield; the default `filter.p.m.custom.age_bands` works once you add that filter in the Shopify Search & Discovery app.
+
+### Skills
+
+**Skill names** sets five skills, comma separated — by default *Move, Think, Feel, Pretend, Create*. Match the choices of your `custom.skills` metafield. **Skill 1** to **Skill 5** set each skill's color for dots, chips and skill tiles.
+
+### Product cards
+
+**Show the grow line and age range** adds a thin grow line and a short range such as *6m – 2y* to every card. **Show skills** adds skill dots.
+
+<SettingsTable global="Grow line" />
+
+## Cart
+
+<SettingsTable global="Cart" />
+
+## Subscriptions and currency
+
+<SettingsTable global="Subscriptions" />
+
+<SettingsTable global="Currency format" />
+
+## Social media
+
+Paste the full address of each profile. Icons appear wherever a section shows social media icons — the footer and the top bar.
+
+<SettingsTable global="Social media" />

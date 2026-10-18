@@ -1,0 +1,125 @@
+---
+title: "Text and storytelling sections"
+description: "Rich text, image with text, multicolumn, collage, testimonials, logo list, comparison and feature tiles."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+These sections tell your brand story. Most of them share the same heading controls — **Eyebrow**, **Heading**, **Intro**, **Heading alignment** and an optional link — so a page reads consistently.
+
+<Callout type="note" title="Skill tiles, trade-in and play stages">
+The **Skill tiles**, **Trade-in**, **Play stages** and **Box contents** sections are documented with the other grow line sections. See [Grow sections](/docs/grow-line/grow-sections).
+</Callout>
+
+## Rich text
+
+Copy-led sections built from **Eyebrow**, **Heading**, **Text** and **Button** blocks. Choose a **Layout**:
+
+- **Centered** or **Left aligned** — a single column of copy.
+- **Heading left, text in columns** — the heading on the left and the text on the right, in one or two **Text columns (split layout)**.
+- **Banner (copy left, buttons right)** — a call-to-action band, such as *Still need a hand?*
+- **Statement (one large sentence)** — the heading blocks set as one large display sentence. With **Highlight phrases** on, each italic phrase in the heading is highlighted in one of the color scheme's colors.
+
+Turn on **Rule above the section** to separate it from the section before.
+
+<img width="800" height="170" src="/images/docs/rich-text.png" alt="A Rich text section in the Statement layout: an eyebrow and one large sentence with its italic phrase highlighted." />
+
+<SettingsTable section="rich-text" />
+
+## Image with text
+
+An image beside your copy, built from **Eyebrow**, **Heading**, **Text**, **List** and **Button** blocks. Choose a **Layout**:
+
+- **Side by side** — image and copy on the section's colors.
+- **Card panel** — one panel in its own **Card color scheme**, with the image flush to its edge.
+- **Image with overlapping card** — a wide image with a card overlapping its edge.
+
+A **List** block suits materials, safety checks or benefits — as ruled rows with numbers, check marks or one inline row.
+
+**Color band on the seam** draws a vertical band where the image meets the copy, in the side by side layout on larger screens. Pick a **Color product** to show that product's colors; without one, the band uses the color scheme's colors.
+
+<img width="800" height="443" src="/images/docs/image-with-text.png" alt="An Image with text section: a toy photo beside an eyebrow, heading, text and a button." />
+
+<SettingsTable section="image-with-text" />
+
+## Multicolumn
+
+One section, several looks. Each **Column** block is one item. Choose a **Style**:
+
+- **Perk bar (icon left, ruled)** — a row of perks, such as free gift wrap or safety testing, between two rules.
+- **Columns with icon or image** — icon or image, title, text and link.
+- **Numbered steps** — large numbers on one continuous rule, so a process reads left to right.
+- **Bordered cards** — cards with a label row.
+- **Spec band (label + value)** — a small label over a large value.
+- **Numbered features with icon** — numbered columns with an icon at the top right.
+- **Timeline (dots on a rule)** — steps on one rule with a dot each, such as for a pre-order.
+- **Offer cards (price + button)** — cards with a price and a button.
+
+**Step numbers** can be *01, 02, 03*, roman numerals or plain *1, 2, 3*. The icons include a truck, a shield, a leaf, a gift and a heart for shipping, safety and gifting content.
+
+<img width="800" height="109" src="/images/docs/multicolumn.png" alt="A Multicolumn section in the Perk bar style: a ruled row of perks, each with an icon, a title and one line of text." />
+
+<SettingsTable section="multicolumn" />
+
+## Collage
+
+A grid of images, products and collections with one large item. Add **Image**, **Product** and **Collection** blocks, and choose which side the large item sits on with **Large item**. On phones the large item goes full width above a two-column grid.
+
+Choose a **Style**:
+
+- **Editorial grid** — one to five items. Images and collections carry a caption in a corner, and product items carry their color band down the left edge.
+- **Tiles** — three items: one large item beside two stacked ones, with the label and title over the image.
+
+**Darken image for light text** is on by default so the overlaid copy stays readable on any photo — turn it off per item if your photo's already dark enough on its own.
+
+<SettingsTable section="collage" />
+
+## Testimonials
+
+Customer quotes about your toys. Link a quote to the product it's about with **Product**, or describe the item in **Item text**. Add the **Child's age**, such as *14 months*, to show it as a tag on the quote in every layout, and turn on **Show “Verified”** for quotes from verified buyers.
+
+Choose a **Layout**:
+
+- **Review cards** — a row of cards that swipe on phones.
+- **One large quote, slideshow** — one quote at a time with a pager.
+- **Large quote with color bands** — the first quote large and the others stacked beside it, each with its product's color band down its edge and a line with the customer's name, the product and the **Extra detail**.
+
+<img width="800" height="263" src="/images/docs/testimonials.png" alt="The Testimonials section in the Large quote with color bands layout: one large quote with a child's age tag, and shorter quotes stacked beside it, each with a color band." />
+
+<SettingsTable section="testimonials" />
+
+<Callout type="warning" title="Use real reviews only">
+Quotes should come from real customers. Shopify and consumer-protection laws don't allow invented reviews.
+</Callout>
+
+## Logo list
+
+Press logos or the marks of the makers you stock, with an optional press quote. A logo can link to the article or maker, and a logo block without an image shows its name instead.
+
+Choose a **Layout**: **Single ruled row, heading at left** or **Centered, stacked**. **Monochrome logos** shows every logo in grayscale so mixed brand colors sit together quietly.
+
+<img width="800" height="77" src="/images/docs/logo-list.png" alt="The Logo list section in the row layout: the label Makers we stock, then the maker names in a ruled row." />
+
+<SettingsTable section="logo-list" />
+
+## Comparison table
+
+Compare your offer with up to three alternatives, row by row — for example a play box against buying toys one by one. Each **Row** block holds a label and one value per column — type *check* for a check mark, or leave a value blank for a dash. A column with a blank heading is hidden. On phones the table scrolls sideways with the row labels pinned.
+
+**Tint column 1** turns the highlight on. Choose which column to highlight with **Highlighted column**, and how with **Highlight style**: a **Band** or a **Tint**.
+
+<img width="800" height="244" src="/images/docs/comparison.png" alt="The Comparison section: a table with the QToys column highlighted against One by one and Elsewhere, row by row." />
+
+<SettingsTable section="comparison" />
+
+## Feature tiles
+
+Large clickable tiles with their own background color or image — good for routing shoppers to key categories, age bands or campaigns. On a tile with an image, the text is always light over a dark wash so it stays readable; the tile’s text color applies to color tiles only.
+
+Choose a **Layout**:
+
+- **Grid, sized by importance** — set each tile's **Width** to one, two or three columns out of six. With **Large first tile** on, the first tile spans two rows with a display-size title.
+- **Rail of equal tiles** — every tile the same size.
+
+<SettingsTable section="feature-tiles" />

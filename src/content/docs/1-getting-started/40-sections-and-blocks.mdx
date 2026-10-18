@@ -1,0 +1,51 @@
+---
+title: "Sections, blocks and templates"
+description: "How pages are built in QToys, and how to add, reorder, hide and reuse sections."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## The building blocks
+
+- **Templates** decide the layout of a page type: the home page, product pages, collection pages and so on. You can create alternate templates, for example a second product template for gift sets.
+- **Sections** are the full-width bands that make up a template: a toy hero, a featured collection, a newsletter.
+- **Blocks** are the pieces inside a section: a slide in a slideshow, a question in an FAQ, the grow line or the buy buttons on a product page.
+
+## Add a section
+
+1. In the theme editor, choose the page from the dropdown at the top.
+2. In the left sidebar, click **Add section** where you want it.
+3. Pick a section. Each one starts with sample content you can edit.
+
+Drag sections by their handle to reorder them. Click the eye icon to hide a section without deleting its settings.
+
+The toy sections — **Toy hero**, **Age shop**, **Skill tiles**, **Gift finder**, **Trade-in**, **Play stages** and **Box contents** — work on any page. Sections that show the grow line or skills need your products' `custom.age_bands` and `custom.skills` metafields. See [How the grow line works](/docs/grow-line/how-the-grow-line-works).
+
+## Create an alternate template
+
+1. Open the page type from the top dropdown, then choose **Create template**.
+2. Name it — for example *gift-set* — and choose which template to base it on.
+3. Assign it in the admin: open the product, collection or page and choose the template under **Theme template**.
+
+QToys includes ready-made alternate templates you can assign straight away:
+
+| Template | Use it for |
+| --- | --- |
+| Product · play-box | A play box sold by stage, with what's inside each box, a timeline of how it grows, a comparison and an FAQ |
+| Product · showcase | Hero products, with a specs row, a video and an FAQ |
+| Product · subscription | Products sold with selling plans |
+| Product · preorder | Products that ship later |
+| Product · bundle | Sets and bundles, with a bundle builder |
+| Product · gift-card | Your gift card product |
+| Collection · gift-guide | A gift guide: shop by budget, by who it's for, a featured pick and gift sets |
+| Page · about | An about page with your values, safety checks, a timeline and your team |
+| Page · contact | The contact page |
+| Page · faq | A help center with questions and answers |
+| Page · trade-in | How trade-in works, a credit estimator, condition grades and pre-loved toys |
+| Page · wishlist | The shopper's saved toys |
+| Blog · list, Blog · sidebar | Alternative blog layouts |
+
+## Header and footer groups
+
+The header and footer are **section groups**. Besides the header itself you can add an announcement bar or a top bar above it, and pop-ups such as the newsletter popup or cookie banner to the footer group, so they appear on every page. The cart drawer and cart notification also live in the footer group.

@@ -1,0 +1,67 @@
+---
+title: "Pages, contact and FAQ"
+description: "Standard pages with a sidebar menu, the contact page, the FAQ, about, trade-in and wishlist page templates, and the customer account with My kids, 404 and password pages."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Pages
+
+Every page in **Online Store > Pages** uses the **Page** section: a header band with breadcrumbs, the title and an intro, over your page content. Add a **Sidebar navigation** menu to link related pages — for example shipping, returns, FAQ and contact — and turn on **Show "last updated" date** for policies. To give one page its own intro, fill the page's `custom.intro` metafield (multi-line text, created in **Settings > Custom data > Pages**); it replaces the section's **Intro**.
+
+<img width="800" height="405" src="/images/docs/main-page.png" alt="The Shipping and returns page: a header band with breadcrumbs, the title and an intro, a sidebar menu of help pages, and the page content." />
+
+<SettingsTable section="main-page" />
+
+## Contact page
+
+Assign the **contact** page template to your contact page. The page content shows as the intro, beside your **Info** blocks — for example opening hours or a returns address — and an optional image and link. Messages arrive at your store's sender email.
+
+Enter **Topics**, separated by commas, to let shoppers pick a reason as chips above the form. Turn on the order number or phone fields if you need them.
+
+<img width="800" height="476" src="/images/docs/main-contact.png" alt="The contact page: heading, intro and info blocks on the left, and the form in a card on the right with topic chips, name, email and message fields." />
+
+<SettingsTable section="main-contact" />
+
+## Page templates
+
+QToys includes page templates you can assign to any page in **Online Store > Pages**:
+
+- **faq** — a full help center: search, topics and an accordion of questions, with a row of help cards below. See the [FAQ section](/docs/sections/engagement#faq) for its settings.
+- **about** — an about page built from rich text and rows of values, safety checks, a timeline and the team, ending with a call to action.
+- **trade-in** — explains how trade-in works, with an estimator that shows shoppers what a toy might be worth, a comparison of condition grades and a collection of pre-loved toys. The estimator shows an estimate only: it doesn't create store credit, gift cards or orders, so you assess each toy and issue credit yourself. See [Trade-in](/docs/grow-line/grow-sections#trade-in).
+- **wishlist** — the toys a shopper saved with the wishlist heart, followed by **Recently viewed**. The list is kept in the shopper's browser only, so it isn't linked to their account and doesn't follow them to another device. Set the text shown when the list is empty in the **Wishlist** section.
+
+Every section in these templates can be changed or removed. QToys also includes **library** page templates that show many of its sections with sample content, so you can see them in use before you build your own pages.
+
+<img width="800" height="535" src="/images/docs/page-wishlist.png" alt="The Wishlist page: the heading, a grid of saved toy cards with filled hearts, and a Recently viewed strip below." />
+
+<SettingsTable section="wishlist" />
+
+## Customer account pages
+
+These pages apply to classic customer accounts. With new customer accounts, Shopify hosts the sign-in and account pages, and **My kids** isn't shown.
+
+On the account page, **Show My kids** lets shoppers add their children's name and birth month. Each child is placed on the grow line with a link to toys for their age band, and every product page, quick view and the cart then say whether a toy fits their stage. The children are kept in the shopper's browser only: nothing is saved to the customer record in your admin, and the list doesn't follow them to another device.
+
+**Show next delivery** puts the customer's latest subscription purchase first, with its plan and the **Extra link** to manage it — for example a link to your subscription app's portal.
+
+
+<SettingsTable section="main-account" />
+
+The login, register, activate account and reset password pages share a side panel with your heading, points and an optional background image. On an order page, the return button links to your contact page unless you set **Return / contact link**.
+
+## 404 page
+
+Choose a **Layout**: **Ruler** shows a band of colors that stops short, its last part only an outline, beside the message, a search field and quick links. **Numeral** shows the message beside a panel with a large *404*, or with your **Image** when you add one. Set **Quick links** to a menu; without one, the page links back to all products.
+
+<img width="800" height="406" src="/images/docs/main-404.png" alt="The 404 page in the Ruler layout: a band of colors with the last part outlined, beside the heading, a search field and a link back to the shop." />
+
+<SettingsTable section="main-404" />
+
+## Password page
+
+While your store is password protected, the password page shows your brand, a message, a signup form and the password form. The **Outlined color bands** layout draws a row of outlined bands, waiting for opening day — one per product of the **Color collection**, up to 12, or **Bands without a collection** when no collection is set. **Centered** is a classic centered layout.
+
+<SettingsTable section="main-password" />

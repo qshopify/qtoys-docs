@@ -1,0 +1,27 @@
+---
+title: "Languages, currencies and translations"
+description: "Country and language selectors, multi-currency, and translating theme text such as age bands and skill names."
+updated: 2026-10-18
+---
+import SettingsTable from '../../../components/SettingsTable.astro';
+import Callout from '../../../components/Callout.astro';
+
+## Country and language selectors
+
+When your store sells in more than one country or language (**Settings > Markets** and **Settings > Languages**), turn on the selectors in the header's mobile navigation, the top bar or the footer. Shoppers pick a country to see prices in its currency, and a language to switch translations.
+
+**Show currency codes** in **Theme settings > Currency format** adds codes such as *USD* or *EUR* to prices — useful when several currencies share a symbol.
+
+## Translate or reword theme text
+
+Text built into the theme — button labels, cart messages, form errors, the age verdicts on the product page — lives in your store's language files, not in sections. QToys ships with English theme text.
+
+1. Go to **Online Store > Themes**, click **⋯** next to QToys and choose **Edit default theme content**.
+2. Search for the text you want to change, for example *Shop by age* or *Add to bag*.
+3. Edit it and save. Your change survives theme updates.
+
+For other languages, use **Settings > Languages** with the Shopify Translate & Adapt app.
+
+<Callout type="tip" title="Age bands and skill names">
+The age bands, stage names and skill names are theme settings, set in **Theme settings > Grow line**. They must match the choices of your `custom.age_bands` and `custom.skills` metafields, and the values your age filter uses, so change all of them together.
+</Callout>
